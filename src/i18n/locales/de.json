@@ -95,7 +95,16 @@
       "after": "Nachher",
       "demoTag": "Italienisch · Tisch 4",
       "allergenGluten": "Gluten",
-      "allergenDairy": "Milch"
+      "allergenDairy": "Milch",
+      "restaurant": "La Trattoria",
+      "menuItem1Name": "Bruschetta",
+      "menuItem1Desc": "Gegrilltes Brot, Tomate, Basilikum.",
+      "menuItem2Name": "Burrata",
+      "menuItem2Desc": "Frische Burrata mit Kirschtomaten und Basilikumöl.",
+      "guestPrice1": "$12",
+      "guestPrice2": "$16",
+      "allergenEggs": "Ei",
+      "poweredBy": "Powered by Dain"
     },
     "pricingEntry": {
       "text": "Kostenlos starten — keine Karte nötig",
@@ -141,6 +150,46 @@
       "languages": "Gastsprachen",
       "importTime": "für den Import einer Speisekarte",
       "noApp": "Keine Gäste-App nötig"
+    },
+    "demo": {
+      "ai": {
+        "beforeName": "Grilled Chicken",
+        "afterName": "Pan-Seared Free-Range Chicken",
+        "afterPrice": "$18.00"
+      },
+      "translate": {
+        "dish": "Bruschetta Classica",
+        "lang2Code": "ES",
+        "lang2Label": "Español",
+        "lang2Desc": "Pan de masa madre tostado con tomates frescos, albahaca y aceite de oliva virgen extra.",
+        "lang3Code": "FR",
+        "lang3Label": "Français",
+        "lang3Desc": "Pain au levain grillé garni de tomates fraîches, basilic et huile d'olive vierge extra.",
+        "originalDesc": "Geröstetes Sauerteigbrot mit frischen Tomaten, Basilikum und nativem Olivenöl.",
+        "lang1Code": "EN"
+      },
+      "allergen": {
+        "dish": "Spaghetti Carbonara",
+        "tag1": "Gluten",
+        "tag2": "Eier",
+        "tag3": "Milch"
+      },
+      "guest": {
+        "restaurant": "La Trattoria",
+        "restaurantSub": "Italienisch · Bern, Schweiz",
+        "item1Name": "Bruschetta Classica",
+        "item1Price": "$12",
+        "item1Desc": "Geröstetes Sauerteigbrot mit frischen Tomaten, Basilikum und nativem Olivenöl.",
+        "item1Tag": "Gluten",
+        "item2Name": "Burrata & Prosciutto",
+        "item2Price": "$18",
+        "item2Desc": "Cremige Burrata mit Parmaschinken und frischer Rucola.",
+        "item2Tag": "Milch",
+        "item3Name": "Caprese Salat",
+        "item3Price": "$14",
+        "item3Desc": "Büffelmozzarella, Erbstücktomate und altem Balsamicoessig.",
+        "item3Tag": "Milch"
+      }
     }
   },
   "pricing": {

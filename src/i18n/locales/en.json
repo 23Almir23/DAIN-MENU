@@ -95,7 +95,16 @@
       "after": "After",
       "demoTag": "Italian · Table 4",
       "allergenGluten": "gluten",
-      "allergenDairy": "dairy"
+      "allergenDairy": "dairy",
+      "restaurant": "La Trattoria",
+      "menuItem1Name": "Bruschetta",
+      "menuItem1Desc": "Grilled bread, tomato, basil.",
+      "menuItem2Name": "Burrata",
+      "menuItem2Desc": "Fresh burrata with cherry tomatoes and basil oil.",
+      "guestPrice1": "$12",
+      "guestPrice2": "$16",
+      "allergenEggs": "Eggs",
+      "poweredBy": "Powered by Dain"
     },
     "pricingEntry": {
       "text": "Free to start — no card needed",
@@ -141,6 +150,46 @@
       "languages": "Guest languages",
       "importTime": "to import a menu",
       "noApp": "No guest app needed"
+    },
+    "demo": {
+      "ai": {
+        "beforeName": "Grilled Chicken",
+        "afterName": "Pan-Seared Free-Range Chicken",
+        "afterPrice": "$18.00"
+      },
+      "translate": {
+        "dish": "Bruschetta Classica",
+        "lang2Code": "ES",
+        "lang2Label": "Español",
+        "lang2Desc": "Pan de masa madre tostado con tomates frescos, albahaca y aceite de oliva virgen extra.",
+        "lang3Code": "FR",
+        "lang3Label": "Français",
+        "lang3Desc": "Pain au levain grillé garni de tomates fraîches, basilic et huile d'olive vierge extra.",
+        "originalDesc": "Toasted sourdough topped with fresh tomatoes, basil, and extra virgin olive oil.",
+        "lang1Code": "EN"
+      },
+      "allergen": {
+        "dish": "Spaghetti Carbonara",
+        "tag1": "Gluten",
+        "tag2": "Eggs",
+        "tag3": "Dairy"
+      },
+      "guest": {
+        "restaurant": "La Trattoria",
+        "restaurantSub": "Italian · Bern, Switzerland",
+        "item1Name": "Bruschetta Classica",
+        "item1Price": "$12",
+        "item1Desc": "Toasted sourdough with fresh tomatoes, basil, and extra virgin olive oil.",
+        "item1Tag": "Gluten",
+        "item2Name": "Burrata & Prosciutto",
+        "item2Price": "$18",
+        "item2Desc": "Creamy burrata with cured prosciutto and fresh rocket.",
+        "item2Tag": "Dairy",
+        "item3Name": "Caprese Salad",
+        "item3Price": "$14",
+        "item3Desc": "Buffalo mozzarella, heritage tomatoes, basil oil.",
+        "item3Tag": "Dairy"
+      }
     }
   },
   "pricing": {

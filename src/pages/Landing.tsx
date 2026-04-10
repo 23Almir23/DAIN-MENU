@@ -104,7 +104,7 @@ export default function Landing() {
                 <div className="flex">
                   <div className="flex-1 p-4 space-y-3 border-r border-white/10">
                     <div className="flex items-center justify-between">
-                      <p className="text-[11px] font-medium text-white/70">La Trattoria</p>
+                      <p className="text-[11px] font-medium text-white/70">{t("landing.mockup.restaurant")}</p>
                       <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">
                         {t("landing.mockup.itemsFlagged", { count: 3 })}
                       </span>
@@ -115,8 +115,20 @@ export default function Landing() {
                     </div>
                     <p className="text-[9px] text-white/30 font-medium uppercase tracking-wider">{t("landing.mockup.starters")}</p>
                     {[
-                      { name: "Bruschetta",  desc: "Grilled bread, tomato, basil.", review: true },
-                      { name: "Burrata",     desc: "Fresh burrata with cherry tomatoes and basil oil.", review: false },
+                      {
+                        name: t("landing.mockup.menuItem1Name"),
+                        desc: t("landing.mockup.menuItem1Desc"),
+                        allergen: t("landing.mockup.allergenGluten"),
+                        allergen2: t("landing.mockup.allergenDairy"),
+                        review: true,
+                      },
+                      {
+                        name: t("landing.mockup.menuItem2Name"),
+                        desc: t("landing.mockup.menuItem2Desc"),
+                        allergen: t("landing.mockup.allergenGluten"),
+                        allergen2: t("landing.mockup.allergenDairy"),
+                        review: false,
+                      },
                     ].map((item) => (
                       <div
                         key={item.name}
@@ -137,10 +149,10 @@ export default function Landing() {
                         <p className="text-[10px] text-white/35 mt-0.5 leading-snug">{item.desc}</p>
                         <div className="flex gap-1 mt-1.5">
                           <span className="text-[8px] px-1.5 py-0.5 rounded-full border border-white/10 text-white/40">
-                            {t("landing.mockup.allergenGluten")}
+                            {item.allergen}
                           </span>
                           <span className="text-[8px] px-1.5 py-0.5 rounded-full border border-white/10 text-white/40">
-                            {t("landing.mockup.allergenDairy")}
+                            {item.allergen2}
                           </span>
                         </div>
                       </div>
@@ -157,19 +169,19 @@ export default function Landing() {
                   <div className="w-[130px] shrink-0 p-3 space-y-2 bg-white/[0.02]">
                     <p className="text-[9px] text-white/30 font-medium">{t("landing.mockup.guestViewMobile")}</p>
                     <div className="rounded-lg bg-primary text-primary-foreground p-2 text-center">
-                      <p className="text-[10px] font-serif">La Trattoria</p>
+                      <p className="text-[10px] font-serif">{t("landing.mockup.restaurant")}</p>
                       <p className="text-[8px] opacity-70 mt-0.5">{t("landing.mockup.demoTag")}</p>
                     </div>
                     <div className="flex gap-0.5 flex-wrap">
                       {["EN", "DE", "FR"].map((code) => (
-                        <span key={code} className="text-[9px] px-1.5 py-0.5 rounded-full bg-white/8 text-white/40">
+                        <span key={code} className="text-[9px] px-1.5 py-0.5 rounded-full bg-white/8 text-white/40 font-mono">
                           {code}
                         </span>
                       ))}
                     </div>
                     {[
-                      { name: "Bruschetta", price: "$12" },
-                      { name: "Burrata",    price: "$16" },
+                      { name: t("landing.mockup.menuItem1Name"), price: t("landing.mockup.guestPrice1") },
+                      { name: t("landing.mockup.menuItem2Name"), price: t("landing.mockup.guestPrice2") },
                     ].map((item) => (
                       <div key={item.name} className="rounded-lg border border-white/10 p-1.5 bg-white/[0.04]">
                         <div className="flex items-center justify-between">
@@ -179,7 +191,7 @@ export default function Landing() {
                       </div>
                     ))}
                     <p className="text-[8px] text-center text-white/20 pt-1">
-                      Powered by <span className="text-primary/70 font-semibold">Dain</span>
+                      {t("landing.mockup.poweredBy")}
                     </p>
                   </div>
                 </div>
@@ -195,9 +207,9 @@ export default function Landing() {
         <div className="max-w-6xl mx-auto px-6 py-8">
           <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-6">
             {[
-              { value: "6", label: t("landing.stats.languages") },
+              { value: "6",       label: t("landing.stats.languages") },
               { value: "< 2 min", label: t("landing.stats.importTime") },
-              { value: "0", label: t("landing.stats.noApp") },
+              { value: "0",       label: t("landing.stats.noApp") },
             ].map(({ value, label }) => (
               <div key={label} className="text-center" data-testid={`stat-${label}`}>
                 <p className="text-3xl font-serif font-bold text-foreground tracking-tight">{value}</p>
@@ -256,7 +268,7 @@ export default function Landing() {
               { n: "02", icon: Sparkles, title: t("landing.steps.ai.title"),     desc: t("landing.steps.ai.desc") },
               { n: "03", icon: QrCode,   title: t("landing.steps.qr.title"),     desc: t("landing.steps.qr.desc") },
             ].map(({ n, icon: Icon, title, desc }) => (
-              <div key={n} className="relative">
+              <div key={n}>
                 <div className="text-[5rem] font-serif font-bold text-white/[0.04] leading-none select-none mb-3">
                   {n}
                 </div>
@@ -287,6 +299,7 @@ export default function Landing() {
             </p>
           </div>
 
+          {/* Before / After rewrite */}
           <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div className="rounded-2xl border bg-card p-6">
               <Badge variant="outline" className="text-xs rounded-full mb-4">
@@ -297,7 +310,7 @@ export default function Landing() {
                   <Utensils className="h-4 w-4 text-muted-foreground" />
                 </div>
                 <div>
-                  <p className="font-sans-heading text-sm">Grilled Chicken</p>
+                  <p className="font-sans-heading text-sm">{t("landing.demo.ai.beforeName")}</p>
                   <p className="text-muted-foreground text-sm mt-1 leading-relaxed">{beforeText}</p>
                 </div>
               </div>
@@ -314,16 +327,17 @@ export default function Landing() {
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <p className="font-sans-heading text-sm">Pan-Seared Free-Range Chicken</p>
+                    <p className="font-sans-heading text-sm">{t("landing.demo.ai.afterName")}</p>
                     <Star className="h-3.5 w-3.5 text-primary fill-primary shrink-0" />
                   </div>
                   <p className="text-muted-foreground text-sm mt-1 leading-relaxed">{afterText}</p>
-                  <p className="font-bold mt-2">$18.00</p>
+                  <p className="font-bold mt-2">{t("landing.demo.ai.afterPrice")}</p>
                 </div>
               </div>
             </div>
           </div>
 
+          {/* Translate + Allergen */}
           <div className="grid md:grid-cols-2 gap-4 mb-10">
             <div className="rounded-2xl border bg-card p-6">
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">
@@ -331,21 +345,42 @@ export default function Landing() {
               </p>
               <div className="space-y-2">
                 {[
-                  { lang: "EN", label: t("landing.aiProof.englishOrig"), text: "Toasted sourdough topped with fresh tomatoes, basil, and extra virgin olive oil.", highlight: false },
-                  { lang: "ES", label: "Español", text: "Pan de masa madre tostado con tomates frescos, albahaca y aceite de oliva virgen extra.", highlight: true },
-                  { lang: "FR", label: "Français", text: "Pain au levain grillé garni de tomates fraîches, basilic et huile d'olive vierge extra.", highlight: true },
-                ].map(({ lang, label, text, highlight }) => (
+                  {
+                    code: t("landing.demo.translate.lang1Code"),
+                    label: t("landing.aiProof.englishOrig"),
+                    desc: `${t("landing.demo.translate.dish")} — ${t("landing.demo.translate.originalDesc")}`,
+                    highlight: false,
+                  },
+                  {
+                    code: t("landing.demo.translate.lang2Code"),
+                    label: t("landing.demo.translate.lang2Label"),
+                    desc: `${t("landing.demo.translate.dish")} — ${t("landing.demo.translate.lang2Desc")}`,
+                    highlight: true,
+                  },
+                  {
+                    code: t("landing.demo.translate.lang3Code"),
+                    label: t("landing.demo.translate.lang3Label"),
+                    desc: `${t("landing.demo.translate.dish")} — ${t("landing.demo.translate.lang3Desc")}`,
+                    highlight: true,
+                  },
+                ].map(({ code, label, desc, highlight }) => (
                   <div
-                    key={lang}
+                    key={code}
                     className={`rounded-xl border p-3 ${highlight ? "border-primary/20 bg-primary/[0.02]" : ""}`}
                   >
                     <div className="flex items-center gap-2 mb-1">
-                      <span className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded ${highlight ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"}`}>
-                        {lang}
+                      <span
+                        className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded ${
+                          highlight ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"
+                        }`}
+                      >
+                        {code}
                       </span>
-                      <span className={`text-[10px] font-medium ${highlight ? "text-primary" : "text-muted-foreground"}`}>{label}</span>
+                      <span className={`text-[10px] font-medium ${highlight ? "text-primary" : "text-muted-foreground"}`}>
+                        {label}
+                      </span>
                     </div>
-                    <p className="text-[11px] text-muted-foreground leading-relaxed">Bruschetta Classica — {text}</p>
+                    <p className="text-[11px] text-muted-foreground leading-relaxed">{desc}</p>
                   </div>
                 ))}
               </div>
@@ -358,7 +393,7 @@ export default function Landing() {
               <div className="space-y-3">
                 <div className="rounded-xl border bg-muted/40 p-4">
                   <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-2">{t("landing.aiProof.youEntered")}</p>
-                  <p className="text-sm font-medium">Spaghetti Carbonara</p>
+                  <p className="text-sm font-medium">{t("landing.demo.allergen.dish")}</p>
                   <p className="text-xs text-muted-foreground mt-0.5 italic">{t("landing.aiProof.noAllergenInfo")}</p>
                 </div>
                 <div className="flex items-center justify-center gap-2 text-primary text-xs">
@@ -367,11 +402,15 @@ export default function Landing() {
                 </div>
                 <div className="rounded-xl border-2 border-primary/25 bg-primary/[0.02] p-4">
                   <p className="text-[10px] text-primary uppercase tracking-wider mb-2">{t("landing.aiProof.withAllergens")}</p>
-                  <p className="text-sm font-medium mb-2">Spaghetti Carbonara</p>
+                  <p className="text-sm font-medium mb-2">{t("landing.demo.allergen.dish")}</p>
                   <div className="flex flex-wrap gap-1.5">
-                    {["Gluten", "Eggs", "Dairy"].map((a) => (
-                      <span key={a} className="text-[10px] border border-primary/20 rounded-full px-2.5 py-0.5 text-primary bg-primary/5">
-                        {a}
+                    {[
+                      t("landing.demo.allergen.tag1"),
+                      t("landing.demo.allergen.tag2"),
+                      t("landing.demo.allergen.tag3"),
+                    ].map((tag) => (
+                      <span key={tag} className="text-[10px] border border-primary/20 rounded-full px-2.5 py-0.5 text-primary bg-primary/5">
+                        {tag}
                       </span>
                     ))}
                   </div>
@@ -421,25 +460,21 @@ export default function Landing() {
               </div>
             </div>
 
+            {/* Phone mockup */}
             <div className="shrink-0">
               <div className="w-[300px] rounded-[3rem] border-[6px] border-foreground/10 bg-card shadow-[0_32px_80px_rgba(0,0,0,0.12)] overflow-hidden">
                 <div className="bg-muted/50 h-7 flex items-center justify-center">
                   <div className="h-2 w-12 rounded-full bg-muted-foreground/25" />
                 </div>
                 <div className="bg-primary px-5 pt-4 pb-5 text-primary-foreground">
-                  <p className="text-base font-serif font-medium text-center">La Trattoria</p>
-                  <p className="text-xs opacity-70 mt-0.5 text-center">Italian · Bern, Switzerland</p>
+                  <p className="text-base font-serif font-medium text-center">{t("landing.demo.guest.restaurant")}</p>
+                  <p className="text-xs opacity-70 mt-0.5 text-center">{t("landing.demo.guest.restaurantSub")}</p>
                   <div className="flex gap-1.5 mt-3 justify-center flex-wrap">
-                    {[
-                      { code: "EN", active: true },
-                      { code: "DE", active: false },
-                      { code: "FR", active: false },
-                      { code: "ES", active: false },
-                    ].map(({ code, active }) => (
+                    {["EN", "DE", "FR", "ES"].map((code, i) => (
                       <span
                         key={code}
-                        className={`text-xs px-2.5 py-1 rounded-full font-medium ${
-                          active ? "bg-white/20 text-white" : "opacity-50 text-white"
+                        className={`text-xs px-2.5 py-1 rounded-full font-mono font-medium ${
+                          i === 0 ? "bg-white/20 text-white" : "opacity-50 text-white"
                         }`}
                       >
                         {code}
@@ -465,9 +500,24 @@ export default function Landing() {
                 </div>
                 <div className="px-4 py-3 space-y-3">
                   {[
-                    { name: "Bruschetta Classica",  price: "$12", desc: "Toasted sourdough with fresh tomatoes, basil, and extra virgin olive oil.", tags: ["Gluten"] },
-                    { name: "Burrata & Prosciutto", price: "$18", desc: "Creamy burrata with cured prosciutto and fresh rocket.", tags: ["Dairy"] },
-                    { name: "Caprese Salad",        price: "$14", desc: "Buffalo mozzarella, heritage tomatoes, basil oil.", tags: ["Dairy"] },
+                    {
+                      name:  t("landing.demo.guest.item1Name"),
+                      price: t("landing.demo.guest.item1Price"),
+                      desc:  t("landing.demo.guest.item1Desc"),
+                      tag:   t("landing.demo.guest.item1Tag"),
+                    },
+                    {
+                      name:  t("landing.demo.guest.item2Name"),
+                      price: t("landing.demo.guest.item2Price"),
+                      desc:  t("landing.demo.guest.item2Desc"),
+                      tag:   t("landing.demo.guest.item2Tag"),
+                    },
+                    {
+                      name:  t("landing.demo.guest.item3Name"),
+                      price: t("landing.demo.guest.item3Price"),
+                      desc:  t("landing.demo.guest.item3Desc"),
+                      tag:   t("landing.demo.guest.item3Tag"),
+                    },
                   ].map((item) => (
                     <div key={item.name} className="rounded-2xl border bg-card p-3 shadow-sm">
                       <div className="flex items-start justify-between gap-2">
@@ -476,17 +526,13 @@ export default function Landing() {
                       </div>
                       <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{item.desc}</p>
                       <div className="flex gap-1 mt-2 flex-wrap">
-                        {item.tags.map((tag) => (
-                          <span key={tag} className="text-[10px] border rounded-full px-2 py-0.5 text-muted-foreground">
-                            {tag}
-                          </span>
-                        ))}
+                        <span className="text-[10px] border rounded-full px-2 py-0.5 text-muted-foreground">{item.tag}</span>
                       </div>
                     </div>
                   ))}
                 </div>
                 <p className="text-[10px] text-center text-muted-foreground/40 pb-4">
-                  Powered by <span className="text-primary/60 font-semibold">Dain</span>
+                  {t("landing.mockup.poweredBy")}
                 </p>
               </div>
             </div>
@@ -505,10 +551,12 @@ export default function Landing() {
             {validatedLanguages.map((lang) => (
               <div
                 key={lang.code}
-                className="flex items-center gap-2 rounded-full border bg-card px-5 py-2.5 text-sm font-medium shadow-sm hover:shadow-md hover:border-primary/30 transition-all"
+                className="flex items-center gap-2.5 rounded-full border bg-card px-5 py-2.5 text-sm font-medium shadow-sm hover:shadow-md hover:border-primary/30 transition-all"
                 data-testid={`lang-pill-${lang.code}`}
               >
-                <span className="text-xl">{lang.flag}</span>
+                <span className="text-[11px] font-mono font-bold bg-primary/10 text-primary px-1.5 py-0.5 rounded">
+                  {lang.code.toUpperCase()}
+                </span>
                 <span>{lang.nativeLabel}</span>
               </div>
             ))}
