@@ -1544,4 +1544,44 @@ export function registerRoutes(app: Express) {
       res.status(500).json({ message: "Failed to end service session." });
     }
   });
+
+  // ONE-SHOT ADMIN ENDPOINT: delete specific restaurants by ID.
+  // Protected by ADMIN_CLEANUP_TOKEN env var. Runs in a single transaction.
+  app.post("/api/admin/delete-restaurants", async (req, res) => {
+    const token = process.env.ADMIN_CLEANUP_TOKEN;
+    const authHeader = req.headers["authorization"] ?? "";
+    if (!token || authHeader !== `Bearer ${token}`) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+    const { ids } = req.body as { ids?: string[] };
+    if (!Array.isArray(ids) || ids.length === 0) {
+      return res.status(400).json({ message: "ids array required" });
+    }
+    try {
+      const counts = await db.transaction(async (tx) => {
+        const r1 = await tx.delete(itemTranslations)
+          .where(inArray(itemTranslations.itemId,
+            tx.select({ id: menuItemsTable.id })
+              .from(menuItemsTable)
+              .where(inArray(menuItemsTable.restaurantId, ids)) as any
+          ));
+        const r2 = await tx.delete(categoryTranslations)
+          .where(inArray(categoryTranslations.categoryId,
+            tx.select({ id: categories.id })
+              .from(categories)
+              .where(inArray(categories.restaurantId, ids)) as any
+          ));
+        const r3 = await tx.delete(menuItemsTable).where(inArray(menuItemsTable.restaurantId, ids));
+        const r4 = await tx.delete(categories).where(inArray(categories.restaurantId, ids));
+        const r5 = await tx.delete(serviceSessions).where(inArray(serviceSessions.restaurantId, ids));
+        const r6 = await tx.delete(restaurants).where(inArray(restaurants.id, ids));
+        return { item_translations: r1.rowCount, category_translations: r2.rowCount, menu_items: r3.rowCount, categories: r4.rowCount, service_sessions: r5.rowCount, restaurants: r6.rowCount };
+      });
+      console.log("[AdminCleanup] Deleted:", counts);
+      res.json({ success: true, counts });
+    } catch (err) {
+      console.error("[AdminCleanup] Error:", err);
+      res.status(500).json({ message: "Deletion failed", error: String(err) });
+    }
+  });
 }
