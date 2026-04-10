@@ -200,7 +200,7 @@
       "subtitle": "Start with the free plan. No risk.",
       "viewAll": "View full pricing",
       "free": {
-        "price": "/nix/store/smkzrg2vvp3lng3hq7v9svfni5mnqjh2-bash-interactive-5.2p37/bin/bash",
+        "price": "$0",
         "period": "free",
         "cta": "Start for free"
       },
