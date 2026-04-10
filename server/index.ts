@@ -12,6 +12,7 @@ import express from "express";
 import { setupAuth, registerAuthRoutes } from "./replit_integrations/auth";
 import { registerRoutes } from "./routes";
 import { setupVite } from "./vite";
+import { pool } from "./db";
 
 // Dynamic import keeps @sentry/node out of the module graph entirely when the DSN
 // is absent. @sentry/node v10 registers OpenTelemetry instrumentation at load time
@@ -32,6 +33,25 @@ app.use(express.urlencoded({ extended: true, limit: "25mb" }));
 // Auth MUST be wired before any other routes
 await setupAuth(app);
 registerAuthRoutes(app);
+
+// TEMPORARY STARTUP CLEANUP — delete Celine + test 2 from production DB
+// Safe no-op if restaurants don't exist. Remove after production deploy confirms deletion.
+const CLEANUP_IDS = [
+  'a8fcbf67-9eac-452c-aee5-2a27172b983a', // Celine
+  '10b1ae5c-a09f-4b82-8756-78e881f9c63d', // test 2
+];
+try {
+  const idList = CLEANUP_IDS.map((_, i) => `$${i + 1}`).join(', ');
+  const r1 = await pool.query(`DELETE FROM item_translations WHERE item_id IN (SELECT id FROM menu_items WHERE restaurant_id IN (${idList}))`, CLEANUP_IDS);
+  const r2 = await pool.query(`DELETE FROM category_translations WHERE category_id IN (SELECT id FROM categories WHERE restaurant_id IN (${idList}))`, CLEANUP_IDS);
+  const r3 = await pool.query(`DELETE FROM menu_items WHERE restaurant_id IN (${idList})`, CLEANUP_IDS);
+  const r4 = await pool.query(`DELETE FROM categories WHERE restaurant_id IN (${idList})`, CLEANUP_IDS);
+  const r5 = await pool.query(`DELETE FROM service_sessions WHERE restaurant_id IN (${idList})`, CLEANUP_IDS);
+  const r6 = await pool.query(`DELETE FROM restaurants WHERE id IN (${idList})`, CLEANUP_IDS);
+  console.log(`[Cleanup] item_translations:${r1.rowCount} category_translations:${r2.rowCount} menu_items:${r3.rowCount} categories:${r4.rowCount} service_sessions:${r5.rowCount} restaurants:${r6.rowCount}`);
+} catch (err) {
+  console.error("[Cleanup] Error during startup cleanup:", err);
+}
 
 registerRoutes(app);
 
