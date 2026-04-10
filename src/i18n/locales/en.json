@@ -47,7 +47,8 @@
         "title": "Share via QR",
         "desc": "One link, any device, updates instantly. Every guest sees the menu in their language.",
         "scanLabel": "Scan to open your menu"
-      }
+      },
+      "sectionLabel": "How it works"
     },
     "aiProof": {
       "badge": "Dain Menu in action",
@@ -106,6 +107,40 @@
       "subtitle": "Start free. Your first QR code is 10 minutes away.",
       "cta": "Start free — no card needed",
       "fine": "No credit card · Cancel anytime · dainmenu.com"
+    },
+    "features": {
+      "sectionLabel": "Features",
+      "title": "Everything you need to run a modern menu",
+      "subtitle": "One platform. Import, improve, translate, and share — your menu stays fresh without the grind.",
+      "qr": {
+        "title": "QR Sharing Built In",
+        "desc": "Guests scan once. No app. No login. Works on any device, instantly updated."
+      },
+      "ai": {
+        "title": "AI-Powered Writing",
+        "desc": "AI rewrites vague descriptions into vivid, guest-ready copy in seconds."
+      },
+      "multilingual": {
+        "title": "6 Guest Languages",
+        "desc": "Guests see your full menu automatically in their language — no switching required."
+      },
+      "allergens": {
+        "title": "Allergen Detection",
+        "desc": "AI reads your ingredients and tags allergens. You approve before guests see anything."
+      },
+      "import": {
+        "title": "Import in 2 Minutes",
+        "desc": "Upload a PDF or photo. We extract every item, category, and price automatically."
+      },
+      "noapp": {
+        "title": "No App for Guests",
+        "desc": "A link, a QR code, and a browser — that is all your guests need."
+      }
+    },
+    "stats": {
+      "languages": "Guest languages",
+      "importTime": "to import a menu",
+      "noApp": "No guest app needed"
     }
   },
   "pricing": {

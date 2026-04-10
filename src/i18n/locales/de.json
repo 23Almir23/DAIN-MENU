@@ -47,7 +47,8 @@
         "title": "Per QR teilen",
         "desc": "Ein Link, jedes Gerät, sofort aktuell. Jeder Gast sieht die Karte in seiner Sprache.",
         "scanLabel": "QR-Code scannen"
-      }
+      },
+      "sectionLabel": "So funktioniert es"
     },
     "aiProof": {
       "badge": "Dain Menu in Aktion",
@@ -79,20 +80,20 @@
       "pill3": "Funktioniert auf jedem Gerät"
     },
     "mockup": {
-      "menuBuilder": "Dain Menu \u2014 Men\u00fc-Builder",
+      "menuBuilder": "Dain Menu — Menü-Builder",
       "itemsFlagged_one": "{{count}} Artikel markiert",
       "itemsFlagged_other": "{{count}} Artikel markiert",
-      "rewritePrompt": "5 Artikel brauchen Beschreibungen. Mit KI neu schreiben \u2192",
+      "rewritePrompt": "5 Artikel brauchen Beschreibungen. Mit KI neu schreiben →",
       "starters": "Vorspeisen",
       "mains": "Hauptgerichte",
       "desserts": "Desserts",
       "review": "Prüfen",
       "aiEnhance": "KI-Verbesserung",
-      "rewriteTranslateAllergens": "Umschreiben \u00b7 \u00dcbersetzen \u00b7 Allergene",
-      "guestViewMobile": "Gastansicht \u00b7 Mobil",
+      "rewriteTranslateAllergens": "Umschreiben · Übersetzen · Allergene",
+      "guestViewMobile": "Gastansicht · Mobil",
       "before": "Vorher",
       "after": "Nachher",
-      "demoTag": "Italienisch \u00b7 Tisch 4",
+      "demoTag": "Italienisch · Tisch 4",
       "allergenGluten": "Gluten",
       "allergenDairy": "Milch"
     },
@@ -106,6 +107,40 @@
       "subtitle": "Kostenlos starten. Ihr erster QR-Code ist 10 Minuten entfernt.",
       "cta": "Kostenlos starten — keine Karte nötig",
       "fine": "Keine Kreditkarte · Jederzeit kündigen · dainmenu.com"
+    },
+    "features": {
+      "sectionLabel": "Funktionen",
+      "title": "Alles, was Sie für eine moderne Speisekarte brauchen",
+      "subtitle": "Eine Plattform. Importieren, verbessern, übersetzen und teilen — Ihre Speisekarte bleibt frisch, ohne den Aufwand.",
+      "qr": {
+        "title": "QR-Sharing inklusive",
+        "desc": "Gäste scannen einmal. Keine App. Keine Anmeldung. Auf jedem Gerät, sofort aktuell."
+      },
+      "ai": {
+        "title": "KI-gestütztes Schreiben",
+        "desc": "KI schreibt vage Beschreibungen in lebendige, gastfreundliche Texte um — in Sekunden."
+      },
+      "multilingual": {
+        "title": "6 Gastsprachen",
+        "desc": "Gäste sehen Ihre vollständige Speisekarte automatisch in ihrer Sprache — kein Umschalten nötig."
+      },
+      "allergens": {
+        "title": "Allergen-Erkennung",
+        "desc": "KI liest Ihre Zutaten und markiert Allergene. Sie genehmigen, bevor Gäste etwas sehen."
+      },
+      "import": {
+        "title": "Import in 2 Minuten",
+        "desc": "PDF oder Foto hochladen. Wir extrahieren automatisch alle Artikel, Kategorien und Preise."
+      },
+      "noapp": {
+        "title": "Keine App für Gäste",
+        "desc": "Ein Link, ein QR-Code und ein Browser — das ist alles, was Ihre Gäste brauchen."
+      }
+    },
+    "stats": {
+      "languages": "Gastsprachen",
+      "importTime": "für den Import einer Speisekarte",
+      "noApp": "Keine Gäste-App nötig"
     }
   },
   "pricing": {
@@ -264,61 +299,61 @@
       "clearSpecials": "Tagesangebote entfernen",
       "dismiss": "Schließen",
       "entryImportSub": "PDF, Foto oder Text einfügen",
-      "entryManualSub": "Gericht f\u00fcr Gericht im Builder",
-      "entryScanSub": "KI liest das Foto f\u00fcr Sie",
+      "entryManualSub": "Gericht für Gericht im Builder",
+      "entryScanSub": "KI liest das Foto für Sie",
       "startHereBadge": "Hier starten",
       "popularItemsEmpty": "Noch keine beliebten Artikel",
-      "popularItemsEmptyDesc": "Markieren Sie Artikel als beliebt im Men\u00fc-Builder, um sie f\u00fcr G\u00e4ste hervorzuheben.",
-      "openMenuBuilder": "Men\u00fc-Builder \u00f6ffnen"
+      "popularItemsEmptyDesc": "Markieren Sie Artikel als beliebt im Menü-Builder, um sie für Gäste hervorzuheben.",
+      "openMenuBuilder": "Menü-Builder öffnen"
     },
     "cmd": {
       "needsReview": {
-        "headline_one": "{{n}} KI-\u00c4nderung wartet auf Ihre Genehmigung",
-        "headline_other": "{{n}} KI-\u00c4nderungen warten auf Ihre Genehmigung",
-        "body": "KI hat Ihre Speisekarte verbessert. \u00dcberpr\u00fcfen Sie jede \u00c4nderung und genehmigen Sie sie, bevor G\u00e4ste sie sehen \u2014 Sie behalten die Kontrolle."
+        "headline_one": "{{n}} KI-Änderung wartet auf Ihre Genehmigung",
+        "headline_other": "{{n}} KI-Änderungen warten auf Ihre Genehmigung",
+        "body": "KI hat Ihre Speisekarte verbessert. Überprüfen Sie jede Änderung und genehmigen Sie sie, bevor Gäste sie sehen — Sie behalten die Kontrolle."
       },
       "missingDescriptions": {
         "headline_one": "{{n}} Gericht hat keine Beschreibung",
         "headline_other": "{{n}} Gerichte haben keine Beschreibung",
-        "body": "G\u00e4ste verlassen sich auf Beschreibungen, um Gerichte auszuw\u00e4hlen \u2014 besonders in ihrer Sprache. KI schreibt sie in Sekunden.",
+        "body": "Gäste verlassen sich auf Beschreibungen, um Gerichte auszuwählen — besonders in ihrer Sprache. KI schreibt sie in Sekunden.",
         "action": "Beschreibungen schreiben"
       },
       "incompleteTranslation": {
-        "headline": "{{langName}} ist zu {{pct}}\u00a0% \u00fcbersetzt",
-        "body_one": "{{remaining}} Artikel erscheint noch in Ihrer Basissprache f\u00fcr {{langName}}-sprachige G\u00e4ste. KI kann das in einem Durchlauf abschlie\u00dfen.",
-        "body_other": "{{remaining}} Artikel erscheinen noch in Ihrer Basissprache f\u00fcr {{langName}}-sprachige G\u00e4ste. KI kann das in einem Durchlauf abschlie\u00dfen.",
-        "action": "{{langName}} vervollst\u00e4ndigen"
+        "headline": "{{langName}} ist zu {{pct}} % übersetzt",
+        "body_one": "{{remaining}} Artikel erscheint noch in Ihrer Basissprache für {{langName}}-sprachige Gäste. KI kann das in einem Durchlauf abschließen.",
+        "body_other": "{{remaining}} Artikel erscheinen noch in Ihrer Basissprache für {{langName}}-sprachige Gäste. KI kann das in einem Durchlauf abschließen.",
+        "action": "{{langName}} vervollständigen"
       },
       "setName": {
         "headline": "Restaurantnamen festlegen",
-        "body": "Ihr Name erscheint oben in der Speisekarte \u2014 das Erste, was G\u00e4ste sehen, wenn sie Ihren QR-Code scannen.",
+        "body": "Ihr Name erscheint oben in der Speisekarte — das Erste, was Gäste sehen, wenn sie Ihren QR-Code scannen.",
         "action": "Namen festlegen"
       },
       "checkPreview": {
-        "headline": "G\u00e4steansicht pr\u00fcfen",
-        "body": "Sehen Sie die Speisekarte genau so, wie Ihre G\u00e4ste sie nach dem Scannen sehen. Dauert 30 Sekunden \u2014 pr\u00fcfen Sie Layout, Design und Sprache, bevor jemand scannt.",
-        "action": "G\u00e4stevorschau \u00f6ffnen"
+        "headline": "Gästeansicht prüfen",
+        "body": "Sehen Sie die Speisekarte genau so, wie Ihre Gäste sie nach dem Scannen sehen. Dauert 30 Sekunden — prüfen Sie Layout, Design und Sprache, bevor jemand scannt.",
+        "action": "Gästevorschau öffnen"
       },
       "enhance": {
-        "headline": "Speisekarte \u00fcbersetzen und verbessern",
-        "body": "KI schreibt Beschreibungen neu, markiert Allergene und \u00fcbersetzt Ihre gesamte Speisekarte mit einem Klick. G\u00e4ste in jeder Sprache f\u00fchlen sich willkommen.",
+        "headline": "Speisekarte übersetzen und verbessern",
+        "body": "KI schreibt Beschreibungen neu, markiert Allergene und übersetzt Ihre gesamte Speisekarte mit einem Klick. Gäste in jeder Sprache fühlen sich willkommen.",
         "action": "Speisekarte verbessern"
       },
       "getQR": {
         "headline": "QR-Code erstellen und auf jeden Tisch legen",
-        "body": "Ihr Men\u00fc ist live. Erstellen Sie einen QR-Code, drucken Sie ihn aus und legen Sie ihn auf Ihre Tische, damit G\u00e4ste ihn scannen k\u00f6nnen.",
+        "body": "Ihr Menü ist live. Erstellen Sie einen QR-Code, drucken Sie ihn aus und legen Sie ihn auf Ihre Tische, damit Gäste ihn scannen können.",
         "action": "QR-Code holen",
-        "secondary": "G\u00e4stemen\u00fc anzeigen"
+        "secondary": "Gästemenü anzeigen"
       },
       "qrReady": {
-        "headline": "Men\u00fc auf jeden Tisch",
-        "body": "Ihr Men\u00fc ist live. Erstellen Sie einen QR-Code, drucken Sie ihn aus und legen Sie ihn auf Ihre Tische.",
+        "headline": "Menü auf jeden Tisch",
+        "body": "Ihr Menü ist live. Erstellen Sie einen QR-Code, drucken Sie ihn aus und legen Sie ihn auf Ihre Tische.",
         "action": "QR-Code holen",
-        "secondary": "G\u00e4stemen\u00fc anzeigen"
+        "secondary": "Gästemenü anzeigen"
       }
     },
     "buddyAllClear": "Ihre Speisekarte sieht im Moment gastbereit aus.",
-    "starting": "Starte\u2026"
+    "starting": "Starte…"
   },
   "menuBuilder": {
     "title": "Menü-Builder",
@@ -368,7 +403,7 @@
       "title": "Alle KI-Änderungen genehmigt",
       "desc": "Ihr Menü ist aktuell — Gäste sehen die neuesten Inhalte."
     },
-    "noSearchResults": "Keine Artikel entsprechen \u201E{{query}}\u201C",
+    "noSearchResults": "Keine Artikel entsprechen „{{query}}“",
     "noSearchResultsInCategory": " in dieser Kategorie",
     "clearSearch": "Suche leeren",
     "showAllCategories": "Alle Kategorien anzeigen",
@@ -424,9 +459,9 @@
       "renameCategoryDesc": "Anzeigename für diesen Menüabschnitt ändern.",
       "deleteCategory": "Kategorie löschen?",
       "deleteItem": "Artikel löschen?",
-      "deleteCategoryDesc": "Dadurch werden \u201E{{name}}\u201C und alle {{count}} Artikel darin dauerhaft gel\u00F6scht. Dies kann nicht r\u00FCckg\u00E4ngig gemacht werden.",
-      "deleteCategoryDesc_other": "Dadurch werden \u201E{{name}}\u201C und alle {{count}} Artikel darin dauerhaft gel\u00F6scht. Dies kann nicht r\u00FCckg\u00E4ngig gemacht werden.",
-      "deleteItemDesc": "Dadurch wird \u201E{{name}}\u201C dauerhaft aus Ihrem Men\u00FC entfernt. Dies kann nicht r\u00FCckg\u00E4ngig gemacht werden.",
+      "deleteCategoryDesc": "Dadurch werden „{{name}}“ und alle {{count}} Artikel darin dauerhaft gelöscht. Dies kann nicht rückgängig gemacht werden.",
+      "deleteCategoryDesc_other": "Dadurch werden „{{name}}“ und alle {{count}} Artikel darin dauerhaft gelöscht. Dies kann nicht rückgängig gemacht werden.",
+      "deleteItemDesc": "Dadurch wird „{{name}}“ dauerhaft aus Ihrem Menü entfernt. Dies kann nicht rückgängig gemacht werden.",
       "scanDish": "Zum Menü hinzufügen",
       "scanDishDesc": "Bestätigen Sie das Gericht aus Ihrem Scan und fügen Sie es sofort hinzu.",
       "dishName": "Gerichtname",
@@ -436,7 +471,7 @@
       "categoryNewPlaceholder": "z. B. Vorspeisen, Hauptgerichte, Desserts",
       "photoOptional": "Foto",
       "photoOptionalHint": "Optional — fügen Sie ein Foto hinzu oder überspringen Sie es.",
-      "descriptionPlaceholder": "Gericht beschreiben \u2014 Zutaten, Zubereitung, was es besonders macht\u2026",
+      "descriptionPlaceholder": "Gericht beschreiben — Zutaten, Zubereitung, was es besonders macht…",
       "editPriceTooltip": "Klicken zum Preis bearbeiten",
       "descriptionHint": "Tipp: Sie können dies später mit KI verbessern —",
       "openAiEnhance": "KI-Verbesserung öffnen",
@@ -461,25 +496,25 @@
       "validPrice": "Gültigen Preis eingeben",
       "selectCategory": "Kategorie auswählen",
       "categoryExists": "Kategorie existiert bereits",
-      "categoryCreated": "Kategorie \u201E{{name}}\u201C erstellt",
+      "categoryCreated": "Kategorie „{{name}}“ erstellt",
       "categoryRenamed": "Kategorie umbenannt",
       "categoryDuplicateExists": "Eine Kategorie mit diesem Namen existiert bereits",
-      "itemAdded": "\u201E{{name}}\u201C zum Men\u00FC hinzugef\u00FCgt",
-      "itemAddedMore": "\u201E{{name}}\u201C hinzugef\u00FCgt \u2014 f\u00FCgen Sie einen weiteren hinzu!",
-      "itemUpdated": "\u201E{{name}}\u201C aktualisiert",
-      "itemRemoved": "\u201E{{name}}\u201C entfernt",
+      "itemAdded": "„{{name}}“ zum Menü hinzugefügt",
+      "itemAddedMore": "„{{name}}“ hinzugefügt — fügen Sie einen weiteren hinzu!",
+      "itemUpdated": "„{{name}}“ aktualisiert",
+      "itemRemoved": "„{{name}}“ entfernt",
       "itemDuplicated": "Artikel dupliziert",
-      "allReviewed": "Alle Artikel als \u00FCberpr\u00FCft markiert",
+      "allReviewed": "Alle Artikel als überprüft markiert",
       "photoFailed": "Foto-Upload fehlgeschlagen: {{msg}}",
-      "scanFailed": "{{msg}} \u2014 Details bitte manuell eingeben.",
-      "cantIdentify": "Kein Gericht im Foto erkannt \u2014 bitte manuell ausf\u00FCllen.",
-      "lowConfidence": "Gerichtname ist eine grobe Sch\u00E4tzung \u2014 bitte vor dem Speichern \u00FCberpr\u00FCfen.",
+      "scanFailed": "{{msg}} — Details bitte manuell eingeben.",
+      "cantIdentify": "Kein Gericht im Foto erkannt — bitte manuell ausfüllen.",
+      "lowConfidence": "Gerichtname ist eine grobe Schätzung — bitte vor dem Speichern überprüfen.",
       "noCategoryForScan": "Zuerst eine Kategorie erstellen, dann ein Gericht scannen.",
       "reorderFailed_one": "{{count}} Kategorie konnte nicht gespeichert werden. Wird vom Server neu geladen.",
       "reorderFailed_other": "{{count}} Kategorien konnten nicht gespeichert werden. Wird vom Server neu geladen.",
       "quickConfirmRequired": "Name, Preis und Kategorie sind erforderlich",
-      "categoryAndItemsRemoved_one": "\u201E{{name}}\u201C und {{count}} Artikel entfernt",
-      "categoryAndItemsRemoved_other": "\u201E{{name}}\u201C und {{count}} Artikel entfernt"
+      "categoryAndItemsRemoved_one": "„{{name}}“ und {{count}} Artikel entfernt",
+      "categoryAndItemsRemoved_other": "„{{name}}“ und {{count}} Artikel entfernt"
     }
   },
   "aiStudio": {
@@ -516,66 +551,66 @@
     "emptyImportAction": "Speisekarte importieren",
     "emptyAddAction": "Gerichte manuell hinzufügen",
     "pageDescription": "Praktische KI-Werkzeuge, die Ihre Speisekarte aktuell, mehrsprachig und gastfreundlich halten.",
-    "noCreditsBody": "Im Rahmen des Frühzugangs k\u00f6nnen Sie Ihren Plan upgraden, um mehr Credits zu erhalten \u2014 alle Pl\u00e4ne sind kostenlos.",
-    "lowCreditsBody": "Vorrat wird knapp \u2014 nutzen Sie verbleibende Credits f\u00fcr Ihre wichtigsten Aktionen.",
-    "menuHealthDesc": "Schnelle \u00dcbersicht, was Ihrer Speisekarte fehlt, bevor G\u00e4ste sie sehen.",
-    "itemSelectionDesc": "Bestimmte Artikel ausw\u00e4hlen oder auf alle anwenden.",
-    "rewriteCardDesc": "Kurzen oder generischen Gerichtetext in ansprechende Beschreibungen umwandeln, die G\u00e4ste bei der Entscheidung helfen. Schreibt in {{lang}}.",
-    "allergensCardDesc": "Gerichtebeschreibungen und Zutaten auf g\u00e4ngige Allergene pr\u00fcfen \u2014 Gluten, Milch, N\u00fcsse, Meeresfrüchte, Eier, Soja, Erdnüsse und Schalentiere.",
-    "caloriesCardDesc": "Gesch\u00e4tzte Kalorienzahlen basierend auf Zutaten und typischen Portionsgrößen hinzufügen. Hilft gesundheitsbewussten G\u00e4sten bei der Auswahl.",
-    "bottomNavText": "Nach dem Ausf\u00fchren von KI-Aktionen das Ergebnis pr\u00fcfen in",
-    "selectThese": "Diese ausw\u00e4hlen",
-    "buddyClearMsg": "Ihre Speisekarte hat keine dringenden L\u00fccken \u2014 KI-Studio ist bereit, wenn Sie es brauchen.",
-    "rewriteHint_one": "{{count}} Beschreibung k\u00f6nnte verbessert werden",
-    "rewriteHint_other": "{{count}} Beschreibungen k\u00f6nnten verbessert werden",
+    "noCreditsBody": "Im Rahmen des Frühzugangs können Sie Ihren Plan upgraden, um mehr Credits zu erhalten — alle Pläne sind kostenlos.",
+    "lowCreditsBody": "Vorrat wird knapp — nutzen Sie verbleibende Credits für Ihre wichtigsten Aktionen.",
+    "menuHealthDesc": "Schnelle Übersicht, was Ihrer Speisekarte fehlt, bevor Gäste sie sehen.",
+    "itemSelectionDesc": "Bestimmte Artikel auswählen oder auf alle anwenden.",
+    "rewriteCardDesc": "Kurzen oder generischen Gerichtetext in ansprechende Beschreibungen umwandeln, die Gäste bei der Entscheidung helfen. Schreibt in {{lang}}.",
+    "allergensCardDesc": "Gerichtebeschreibungen und Zutaten auf gängige Allergene prüfen — Gluten, Milch, Nüsse, Meeresfrüchte, Eier, Soja, Erdnüsse und Schalentiere.",
+    "caloriesCardDesc": "Geschätzte Kalorienzahlen basierend auf Zutaten und typischen Portionsgrößen hinzufügen. Hilft gesundheitsbewussten Gästen bei der Auswahl.",
+    "bottomNavText": "Nach dem Ausführen von KI-Aktionen das Ergebnis prüfen in",
+    "selectThese": "Diese auswählen",
+    "buddyClearMsg": "Ihre Speisekarte hat keine dringenden Lücken — KI-Studio ist bereit, wenn Sie es brauchen.",
+    "rewriteHint_one": "{{count}} Beschreibung könnte verbessert werden",
+    "rewriteHint_other": "{{count}} Beschreibungen könnten verbessert werden",
     "startHereBadge": "Hier starten",
-    "needMoreCredits_one": "Ben\u00f6tigt {{count}} weiteren Credit",
-    "needMoreCredits_other": "Ben\u00f6tigt {{count}} weitere Credits",
-    "translateCardDesc": "\u00dcbersetzen Sie Artikelnamen und -beschreibungen, damit internationale G\u00e4ste Ihre Speisekarte in ihrer Sprache lesen k\u00f6nnen.",
+    "needMoreCredits_one": "Benötigt {{count}} weiteren Credit",
+    "needMoreCredits_other": "Benötigt {{count}} weitere Credits",
+    "translateCardDesc": "Übersetzen Sie Artikelnamen und -beschreibungen, damit internationale Gäste Ihre Speisekarte in ihrer Sprache lesen können.",
     "translateCoverage": "Abdeckung: {{translated}}/{{total}} Artikel",
     "configureInSettings": "Ziele konfigurieren in",
-    "chipScopedCost": "{{count}} in {{scope}} \u00b7 {{cost}}\u00a0Cr.",
-    "chipAllCost": "{{count}} Artikel \u00b7 {{cost}}\u00a0Cr.",
-    "actionCostLine": "{{cost}} Credits \u00b7 {{count}} Artikel",
+    "chipScopedCost": "{{count}} in {{scope}} · {{cost}} Cr.",
+    "chipAllCost": "{{count}} Artikel · {{cost}} Cr.",
+    "actionCostLine": "{{cost}} Credits · {{count}} Artikel",
     "toasts": {
-      "notEnoughCredits": "Nicht genug Credits \u2014 ben\u00f6tigt {{need}}, Sie haben {{have}}.",
-      "noItemsNeeded": "{{label}} \u2014 kein Artikel ben\u00f6tigt diese Aktion.",
+      "notEnoughCredits": "Nicht genug Credits — benötigt {{need}}, Sie haben {{have}}.",
+      "noItemsNeeded": "{{label}} — kein Artikel benötigt diese Aktion.",
       "actionComplete": "{{label}} abgeschlossen",
-      "updatedItems_one": "{{count}} Artikel aktualisiert \u00b7 {{cost}} Credit verwendet",
-      "updatedItems_other": "{{count}} Artikel aktualisiert \u00b7 {{cost}} Credits verwendet",
-      "alreadyUpToDate": "{{label}} \u2014 alle Artikel bereits aktuell",
+      "updatedItems_one": "{{count}} Artikel aktualisiert · {{cost}} Credit verwendet",
+      "updatedItems_other": "{{count}} Artikel aktualisiert · {{cost}} Credits verwendet",
+      "alreadyUpToDate": "{{label}} — alle Artikel bereits aktuell",
       "noCreditsCharged": "Keine Credits abgezogen.",
-      "translationAdded_one": "{{lang}} zu {{count}} Artikel hinzugef\u00fcgt.",
-      "translationAdded_other": "{{lang}} zu {{count}} Artikeln hinzugef\u00fcgt.",
+      "translationAdded_one": "{{lang}} zu {{count}} Artikel hinzugefügt.",
+      "translationAdded_other": "{{lang}} zu {{count}} Artikeln hinzugefügt.",
       "dishesImproved_one": "{{count}} Gericht verbessert.",
       "dishesImproved_other": "{{count}} Gerichte verbessert.",
-      "aiUnavailable": "KI-Funktionen sind momentan nicht verf\u00fcgbar \u2014 bitte sp\u00e4ter erneut versuchen.",
-      "aiQuotaExceeded": "KI-Kontingent \u00fcberschritten \u2014 bitte in wenigen Minuten erneut versuchen.",
-      "actionFailed": "{{label}} fehlgeschlagen \u2014 bitte erneut versuchen"
+      "aiUnavailable": "KI-Funktionen sind momentan nicht verfügbar — bitte später erneut versuchen.",
+      "aiQuotaExceeded": "KI-Kontingent überschritten — bitte in wenigen Minuten erneut versuchen.",
+      "actionFailed": "{{label}} fehlgeschlagen — bitte erneut versuchen"
     },
     "entryBanner": {
-      "finishTranslation": "\u00dcbersetzung f\u00fcr {{lang}} abschlie\u00dfen \u2014 {{pct}}\u00a0% erledigt, noch {{remaining}} Artikel",
+      "finishTranslation": "Übersetzung für {{lang}} abschließen — {{pct}} % erledigt, noch {{remaining}} Artikel",
       "remaining_one": "noch {{count}} Artikel",
       "remaining_other": "noch {{count}} Artikel",
-      "writeDescriptions_one": "Beschreibungen f\u00fcr {{count}} Gericht schreiben \u2014 G\u00e4ste brauchen Kontext, um sich zu entscheiden",
-      "writeDescriptions_other": "Beschreibungen f\u00fcr {{count}} Gerichte schreiben \u2014 G\u00e4ste brauchen Kontext, um sich zu entscheiden"
+      "writeDescriptions_one": "Beschreibungen für {{count}} Gericht schreiben — Gäste brauchen Kontext, um sich zu entscheiden",
+      "writeDescriptions_other": "Beschreibungen für {{count}} Gerichte schreiben — Gäste brauchen Kontext, um sich zu entscheiden"
     },
     "buddy": {
       "missingDescIssue_one": "{{count}} Gericht hat keine Beschreibung.",
       "missingDescIssue_other": "{{count}} Gerichte haben keine Beschreibung.",
-      "missingDescImpact": "G\u00e4ste sehen nur den Gerichtenamen \u2014 kein Kontext, der bei der Entscheidung hilft.",
-      "missingDescAction": "Beschreibungen neu schreiben ausf\u00fchren, um ansprechende Texte zu erstellen.",
+      "missingDescImpact": "Gäste sehen nur den Gerichtenamen — kein Kontext, der bei der Entscheidung hilft.",
+      "missingDescAction": "Beschreibungen neu schreiben ausführen, um ansprechende Texte zu erstellen.",
       "missingAllergensIssue_one": "{{count}} Gericht hat keine Allergene markiert.",
       "missingAllergensIssue_other": "{{count}} Gerichte haben keine Allergene markiert.",
-      "missingAllergensImpact": "G\u00e4ste mit Ern\u00e4hrungseinschr\u00e4nkungen k\u00f6nnen nicht sehen, was sie meiden sollten \u2014 ein Sicherheits- und Vertrauensproblem.",
-      "missingAllergensAction": "Allergene markieren ausf\u00fchren, um h\u00e4ufige Allergene automatisch zu erkennen.",
-      "lowTranslationIssue": "\u00dcbersetzung {{lang}} ist zu {{pct}}\u00a0% abgeschlossen \u2014 noch {{remaining}} Artikel in Ihrer Basissprache.",
-      "lowTranslationImpact": "G\u00e4ste, die {{lang}} sprechen, sehen diese Gerichte un\u00fcbersetzt.",
-      "lowTranslationAction": "Men\u00fc \u00fcbersetzen ausf\u00fchren und {{lang}} ausw\u00e4hlen, um die L\u00fccken automatisch zu f\u00fcllen.",
+      "missingAllergensImpact": "Gäste mit Ernährungseinschränkungen können nicht sehen, was sie meiden sollten — ein Sicherheits- und Vertrauensproblem.",
+      "missingAllergensAction": "Allergene markieren ausführen, um häufige Allergene automatisch zu erkennen.",
+      "lowTranslationIssue": "Übersetzung {{lang}} ist zu {{pct}} % abgeschlossen — noch {{remaining}} Artikel in Ihrer Basissprache.",
+      "lowTranslationImpact": "Gäste, die {{lang}} sprechen, sehen diese Gerichte unübersetzt.",
+      "lowTranslationAction": "Menü übersetzen ausführen und {{lang}} auswählen, um die Lücken automatisch zu füllen.",
       "missingCaloriesIssue_one": "Noch keine Kalorienangaben bei einem Ihrer {{count}} Gerichte.",
       "missingCaloriesIssue_other": "Noch keine Kalorienangaben bei allen {{count}} Gerichten.",
-      "missingCaloriesImpact": "Gesundheitsbewusste G\u00e4ste k\u00f6nnen Portionen nicht einsch\u00e4tzen.",
-      "missingCaloriesAction": "Kalorien sch\u00e4tzen ausf\u00fchren, um Kalorienzahlen automatisch hinzuzuf\u00fcgen."
+      "missingCaloriesImpact": "Gesundheitsbewusste Gäste können Portionen nicht einschätzen.",
+      "missingCaloriesAction": "Kalorien schätzen ausführen, um Kalorienzahlen automatisch hinzuzufügen."
     }
   },
   "qr": {
@@ -592,13 +627,13 @@
     "itemsLive_one": "{{count}} Artikel in {{cats}} Kategorie ist live",
     "itemsLive_other": "{{count}} Artikel in {{cats}} Kategorien sind live",
     "addMoreItems": "Fügen Sie mindestens 3 verfügbare Artikel hinzu…",
-    "unavailableItems_one": "{{count}} Artikel als nicht verfügbar markiert \u2014 Gäste sehen ihn nicht.",
-    "unavailableItems_other": "{{count}} Artikel als nicht verfügbar markiert \u2014 Gäste sehen sie nicht.",
+    "unavailableItems_one": "{{count}} Artikel als nicht verfügbar markiert — Gäste sehen ihn nicht.",
+    "unavailableItems_other": "{{count}} Artikel als nicht verfügbar markiert — Gäste sehen sie nicht.",
     "statItems": "Artikel",
     "statCategories": "Kategorien",
     "statLanguages": "Sprachen",
     "statOf": "von {{total}}",
-    "tableTentDesc": "Legen Sie eine Karte auf jeden Tisch \u2014 Gäste scannen, anstatt auf eine Speisekarte zu warten.",
+    "tableTentDesc": "Legen Sie eine Karte auf jeden Tisch — Gäste scannen, anstatt auf eine Speisekarte zu warten.",
     "receiptsFlyersDesc": "Fügen Sie es Druckmaterialien für Wiederholungsbesuche und Take-away-Bestellungen hinzu.",
     "windowDoorDesc": "Lassen Sie Passanten das Menü schon vor dem Eintreten ansehen.",
     "bottomCtaText": "Müssen Sie Ihr Menü vor dem Teilen aktualisieren?",
@@ -706,19 +741,19 @@
       "optional": "Optional",
       "seePlans": "Pläne ansehen",
       "guestPreview": "Gästevorschau",
-      "cuisinePlaceholder": "z. B. Italienisch, Asiatisch, Caf\u00e9",
+      "cuisinePlaceholder": "z. B. Italienisch, Asiatisch, Café",
       "emailPlaceholder": "info@beispiel.de",
       "websitePlaceholder": "https://",
-      "allergyPlaceholder": "z. B. Bitte informieren Sie Ihr Personal \u00fcber Nahrungsmittelallergien oder Di\u00e4tanforderungen.",
-      "translationNotYetAvailable": "(Unterst\u00fctzung noch nicht verf\u00fcgbar)",
-      "supportedLanguagesNote": "Unterst\u00fctzte Sprachen k\u00f6nnen \u00fcber das KI-Studio \u00fcbersetzt werden. Sprachen, die als \u201Enoch nicht verf\u00fcgbar\u201C markiert sind, k\u00f6nnen hier ausgew\u00e4hlt, aber noch nicht \u00fcbersetzt werden.",
-      "customBrandingNote": "Eigenes Branding ist ab dem Starter-Plan verf\u00fcgbar.",
-      "previewNote": "\u00c4nderungen wirken sich nach dem Speichern aus. Vorschau in der",
+      "allergyPlaceholder": "z. B. Bitte informieren Sie Ihr Personal über Nahrungsmittelallergien oder Diätanforderungen.",
+      "translationNotYetAvailable": "(Unterstützung noch nicht verfügbar)",
+      "supportedLanguagesNote": "Unterstützte Sprachen können über das KI-Studio übersetzt werden. Sprachen, die als „noch nicht verfügbar“ markiert sind, können hier ausgewählt, aber noch nicht übersetzt werden.",
+      "customBrandingNote": "Eigenes Branding ist ab dem Starter-Plan verfügbar.",
+      "previewNote": "Änderungen wirken sich nach dem Speichern aus. Vorschau in der",
       "billingContactPerson": "Rechnungskontakt",
       "invoicingNotes": "Rechnungsnotizen",
       "invoicesHint": "Rechnungen und Quittungen werden hierhin gesendet.",
-      "billingNotesHint": "Bestellnummer, Kostenstelle oder ein Referenzhinweis f\u00fcr Rechnungen.",
-      "unsavedChanges": "Sie haben nicht gespeicherte \u00c4nderungen"
+      "billingNotesHint": "Bestellnummer, Kostenstelle oder ein Referenzhinweis für Rechnungen.",
+      "unsavedChanges": "Sie haben nicht gespeicherte Änderungen"
     },
     "serviceOptions": {
       "dine-in": "Vor Ort",
@@ -739,7 +774,7 @@
     "creditCostDesc": "Jede KI-Aktion hat feste Kosten pro Gericht.",
     "creditCostDescMenu": "Jede KI-Aktion hat feste Kosten pro Gericht. Ihr Menü mit {{n}} Gerichten kostet:",
     "upcomingPlans": "Kommende Pläne",
-    "upcomingPlansDesc": "Vorschau auf das Kommende \u2014 Pläne und Preise sind noch nicht final.",
+    "upcomingPlansDesc": "Vorschau auf das Kommende — Pläne und Preise sind noch nicht final.",
     "creditHistory": "Credit-Verlauf",
     "creditHistoryDesc": "Letzte KI-Aktionen und Credit-Änderungen.",
     "creditsRemaining": "Verbleibende Credits",
@@ -774,12 +809,12 @@
     "mostChosen": "Meist gewählt",
     "paidPlansComingSoon": "Kostenpflichtige Plan-Upgrades folgen bald. Sie können alle KI-Funktionen jetzt kostenlos ausprobieren.",
     "paymentTitle": "Zahlungsverarbeitung kommt in einem zukünftigen Release",
-    "paymentDesc": "Echte Zahlungsverarbeitung (Kreditkarte, PayPal, Apple Pay, Google Pay) ist in Entwicklung. Während Early Access sind alle Pläne und Credits kostenlos \u2014 keine Karte erforderlich.",
+    "paymentDesc": "Echte Zahlungsverarbeitung (Kreditkarte, PayPal, Apple Pay, Google Pay) ist in Entwicklung. Während Early Access sind alle Pläne und Credits kostenlos — keine Karte erforderlich.",
     "noCreditsHistory": "Noch keine Credits verbraucht.",
-    "selectFromExample": "z. B. Einfacher Text \u2192 appetitliche Beschreibung",
-    "perItemExample_rewrite": "Einfacher Text \u2192 appetitliche Beschreibung",
+    "selectFromExample": "z. B. Einfacher Text → appetitliche Beschreibung",
+    "perItemExample_rewrite": "Einfacher Text → appetitliche Beschreibung",
     "perItemExample_translate": "Pro Gericht, pro Sprache",
-    "perItemExample_allergen": "Gluten, Milch, N\u00fcsse + 5 weitere",
+    "perItemExample_allergen": "Gluten, Milch, Nüsse + 5 weitere",
     "perItemExample_calorie": "Auf Basis der Zutaten",
     "statFreeCredits": "50 Credits",
     "statStarterCredits": "200 Credits/Monat",
@@ -875,7 +910,7 @@
     "errors": {
       "heic": "{{name}} ist ein iPhone HEIC-Foto. Bitte als JPG exportieren: Foto teilen → \"JPG\"-Format wählen, oder Screenshot aufnehmen und stattdessen hochladen.",
       "tooLarge": "{{name}} ist zu groß ({{sizeMb}} MB). Maximum ist 18 MB.",
-      "unsupportedFormat": "\u201E{{name}}\u201C ist kein unterst\u00fctztes Format. Bitte laden Sie eine PDF, JPG, PNG oder WEBP-Datei hoch.",
+      "unsupportedFormat": "„{{name}}“ ist kein unterstütztes Format. Bitte laden Sie eine PDF, JPG, PNG oder WEBP-Datei hoch.",
       "aiUnavailable": "KI-Analyse ist gerade nicht verfügbar. Sie können Gerichte manuell hinzufügen.",
       "couldNotRead": "Wir konnten die Speisekarte nicht lesen. Versuchen Sie eine klarere Datei oder fügen Sie den Text direkt ein.",
       "saveFailed": "Speichern fehlgeschlagen. Bitte versuchen Sie es erneut.",

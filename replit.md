@@ -456,6 +456,23 @@ migrations/            Auto-generated SQL files (drizzle-kit) — do not edit ma
 
 **NOT translated (by design):** `GuestPreview.tsx` (has its own multilingual system), dynamic API-driven text, shadcn UI primitives, server code, localStorage keys (`menuai_*`), QR filenames.
 
+### Landing Page Redesign — Modern Tech-Startup Style (completed)
+
+**`src/pages/Landing.tsx`** — Complete redesign inspired by Restsify reference screenshots, aiming for a modern clean tech-startup aesthetic (think Vercel/Linear/Stripe):
+- **Hero**: Deep espresso dark background (`#100e0b`), large serif heading + orange accent text, grid dot pattern overlay, subtle orange glow decorations, product mockup (dark-themed)
+- **Stats Strip**: 3 key metrics (6 guest languages / < 2 min import / 0 guest apps) on a light bordered strip
+- **Features Grid**: 6 feature cards in a 3×2 responsive grid with icon + title + description
+- **How It Works**: Dark section with oversized ghost numbering (01/02/03), icon badges, 3 steps
+- **AI Demo**: Before/after rewrite showcase + translation + allergen detection cards
+- **Guest View**: Phone mockup (right) + feature bullet pills (left) — reversed on mobile
+- **Languages**: Language flag pills in a muted-bg section
+- **Terminal CTA**: Dark section with centred glow + bordered rounded card + primary CTA button
+- All text via `useTranslation()` / `t("landing.*")` — no hardcoded copy; allergen badges use text labels instead of emoji
+- **New i18n keys added** to both `en.json` and `de.json`:
+  - `landing.features.*` (sectionLabel, title, subtitle, 6 feature cards with title+desc each)
+  - `landing.stats.*` (languages, importTime, noApp)
+  - `landing.steps.sectionLabel`
+
 ### Guest View Redesign + 4 Design Templates + Print Export (completed)
 
 **Schema additions:** `restaurants.template text NOT NULL DEFAULT 'noir'` and `restaurants.coverImage text` added to `server/schema.ts`; migrated via `drizzle-kit push`.
