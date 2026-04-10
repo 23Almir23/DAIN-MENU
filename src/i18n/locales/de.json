@@ -149,7 +149,10 @@
     "stats": {
       "languages": "Gastsprachen",
       "importTime": "für den Import einer Speisekarte",
-      "noApp": "Keine Gäste-App nötig"
+      "noApp": "Keine Gäste-App nötig",
+      "languagesValue": "6",
+      "importTimeValue": "< 2 min",
+      "noAppValue": "0"
     },
     "demo": {
       "ai": {
@@ -190,6 +193,31 @@
         "item3Desc": "Büffelmozzarella, Erbstücktomate und altem Balsamicoessig.",
         "item3Tag": "Milch"
       }
+    },
+    "pricing": {
+      "sectionLabel": "Preise",
+      "title": "Einfache, transparente Preise",
+      "subtitle": "Mit dem kostenlosen Plan starten. Kein Risiko.",
+      "viewAll": "Alle Preise ansehen",
+      "free": {
+        "price": "0 €",
+        "period": "kostenlos",
+        "cta": "Kostenlos starten"
+      },
+      "starter": {
+        "price": "19 €",
+        "period": "/ Monat",
+        "cta": "Starter starten"
+      },
+      "pro": {
+        "price": "49 €",
+        "period": "/ Monat",
+        "cta": "Pro starten"
+      }
+    },
+    "faq": {
+      "sectionLabel": "FAQ",
+      "title": "Häufig gestellte Fragen"
     }
   },
   "pricing": {

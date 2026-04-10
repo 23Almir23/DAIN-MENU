@@ -32,6 +32,7 @@ const App = () => (
           <Route element={<MarketingLayout />}>
             <Route path="/" element={<Landing />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/preise" element={<Pricing />} />
           </Route>
 
           {/* Standalone public pages */}

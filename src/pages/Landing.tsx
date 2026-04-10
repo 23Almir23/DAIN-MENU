@@ -1,9 +1,10 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   QrCode, Globe, Sparkles, ArrowRight, Upload,
   ShieldCheck, Smartphone, CheckCircle2, ChefHat,
-  Utensils, Star,
+  Utensils, Star, ChevronDown, ChevronUp,
 } from "lucide-react";
 import { SUPPORTED_LANGUAGES } from "@/lib/i18n-utils";
 import { useTranslation } from "react-i18next";
@@ -12,6 +13,28 @@ const VALIDATED_LANG_CODES = ["en", "es", "fr", "de", "it", "pt"];
 const validatedLanguages = SUPPORTED_LANGUAGES.filter((l) =>
   VALIDATED_LANG_CODES.includes(l.code)
 );
+
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b last:border-0">
+      <button
+        className="w-full flex items-center justify-between py-4 text-left text-sm font-medium hover:text-primary transition-colors gap-4"
+        onClick={() => setOpen((o) => !o)}
+        data-testid={`faq-toggle-${q.slice(0, 20)}`}
+      >
+        <span>{q}</span>
+        {open
+          ? <ChevronUp className="h-4 w-4 text-primary shrink-0" />
+          : <ChevronDown className="h-4 w-4 text-muted-foreground shrink-0" />
+        }
+      </button>
+      {open && (
+        <p className="pb-4 text-sm text-muted-foreground leading-relaxed">{a}</p>
+      )}
+    </div>
+  );
+}
 
 export default function Landing() {
   const { t } = useTranslation();
@@ -23,6 +46,63 @@ export default function Landing() {
     { icon: ShieldCheck,  title: t("landing.features.allergens.title"),    desc: t("landing.features.allergens.desc") },
     { icon: Upload,       title: t("landing.features.import.title"),       desc: t("landing.features.import.desc") },
     { icon: Smartphone,   title: t("landing.features.noapp.title"),        desc: t("landing.features.noapp.desc") },
+  ];
+
+  const faqItems = [
+    { q: t("pricing.faqItems.whatIsCredit.q"), a: t("pricing.faqItems.whatIsCredit.a") },
+    { q: t("pricing.faqItems.rollover.q"),      a: t("pricing.faqItems.rollover.a") },
+    { q: t("pricing.faqItems.contract.q"),      a: t("pricing.faqItems.contract.a") },
+  ];
+
+  const plans = [
+    {
+      id:       "free",
+      name:     t("pricing.plans.free.name"),
+      price:    t("landing.pricing.free.price"),
+      period:   t("landing.pricing.free.period"),
+      tagline:  t("pricing.plans.free.tagline"),
+      cta:      t("landing.pricing.free.cta"),
+      popular:  false,
+      highlights: [
+        t("pricing.plans.free.highlights.0"),
+        t("pricing.plans.free.highlights.1"),
+        t("pricing.plans.free.highlights.2"),
+      ],
+    },
+    {
+      id:       "starter",
+      name:     t("pricing.plans.starter.name"),
+      price:    t("landing.pricing.starter.price"),
+      period:   t("landing.pricing.starter.period"),
+      tagline:  t("pricing.plans.starter.tagline"),
+      cta:      t("landing.pricing.starter.cta"),
+      popular:  true,
+      highlights: [
+        t("pricing.plans.starter.highlights.0"),
+        t("pricing.plans.starter.highlights.1"),
+        t("pricing.plans.starter.highlights.2"),
+      ],
+    },
+    {
+      id:       "pro",
+      name:     t("pricing.plans.pro.name"),
+      price:    t("landing.pricing.pro.price"),
+      period:   t("landing.pricing.pro.period"),
+      tagline:  t("pricing.plans.pro.tagline"),
+      cta:      t("landing.pricing.pro.cta"),
+      popular:  false,
+      highlights: [
+        t("pricing.plans.pro.highlights.0"),
+        t("pricing.plans.pro.highlights.1"),
+        t("pricing.plans.pro.highlights.2"),
+      ],
+    },
+  ];
+
+  const stats = [
+    { value: t("landing.stats.languagesValue"), label: t("landing.stats.languages") },
+    { value: t("landing.stats.importTimeValue"), label: t("landing.stats.importTime") },
+    { value: t("landing.stats.noAppValue"),      label: t("landing.stats.noApp") },
   ];
 
   const beforeText = t("landing.steps.ai.before");
@@ -77,7 +157,7 @@ export default function Landing() {
                   variant="ghost"
                   className="text-sm px-7 h-12 text-white/50 hover:text-white hover:bg-white/[0.06] w-full sm:w-auto border border-white/10"
                   data-testid="button-hero-pricing"
-                  onClick={() => { window.location.href = "/pricing"; }}
+                  onClick={() => { window.location.href = "/preise"; }}
                 >
                   {t("nav.pricing")}
                 </Button>
@@ -116,18 +196,18 @@ export default function Landing() {
                     <p className="text-[9px] text-white/30 font-medium uppercase tracking-wider">{t("landing.mockup.starters")}</p>
                     {[
                       {
-                        name: t("landing.mockup.menuItem1Name"),
-                        desc: t("landing.mockup.menuItem1Desc"),
+                        name:     t("landing.mockup.menuItem1Name"),
+                        desc:     t("landing.mockup.menuItem1Desc"),
                         allergen: t("landing.mockup.allergenGluten"),
-                        allergen2: t("landing.mockup.allergenDairy"),
-                        review: true,
+                        allergen2:t("landing.mockup.allergenDairy"),
+                        review:   true,
                       },
                       {
-                        name: t("landing.mockup.menuItem2Name"),
-                        desc: t("landing.mockup.menuItem2Desc"),
+                        name:     t("landing.mockup.menuItem2Name"),
+                        desc:     t("landing.mockup.menuItem2Desc"),
                         allergen: t("landing.mockup.allergenGluten"),
-                        allergen2: t("landing.mockup.allergenDairy"),
-                        review: false,
+                        allergen2:t("landing.mockup.allergenDairy"),
+                        review:   false,
                       },
                     ].map((item) => (
                       <div
@@ -148,12 +228,8 @@ export default function Landing() {
                         </div>
                         <p className="text-[10px] text-white/35 mt-0.5 leading-snug">{item.desc}</p>
                         <div className="flex gap-1 mt-1.5">
-                          <span className="text-[8px] px-1.5 py-0.5 rounded-full border border-white/10 text-white/40">
-                            {item.allergen}
-                          </span>
-                          <span className="text-[8px] px-1.5 py-0.5 rounded-full border border-white/10 text-white/40">
-                            {item.allergen2}
-                          </span>
+                          <span className="text-[8px] px-1.5 py-0.5 rounded-full border border-white/10 text-white/40">{item.allergen}</span>
+                          <span className="text-[8px] px-1.5 py-0.5 rounded-full border border-white/10 text-white/40">{item.allergen2}</span>
                         </div>
                       </div>
                     ))}
@@ -173,9 +249,9 @@ export default function Landing() {
                       <p className="text-[8px] opacity-70 mt-0.5">{t("landing.mockup.demoTag")}</p>
                     </div>
                     <div className="flex gap-0.5 flex-wrap">
-                      {["EN", "DE", "FR"].map((code) => (
-                        <span key={code} className="text-[9px] px-1.5 py-0.5 rounded-full bg-white/8 text-white/40 font-mono">
-                          {code}
+                      {validatedLanguages.slice(0, 3).map((lang) => (
+                        <span key={lang.code} className="text-[9px] px-1.5 py-0.5 rounded-full bg-white/8 text-white/40 font-mono">
+                          {lang.code.toUpperCase()}
                         </span>
                       ))}
                     </div>
@@ -190,9 +266,7 @@ export default function Landing() {
                         </div>
                       </div>
                     ))}
-                    <p className="text-[8px] text-center text-white/20 pt-1">
-                      {t("landing.mockup.poweredBy")}
-                    </p>
+                    <p className="text-[8px] text-center text-white/20 pt-1">{t("landing.mockup.poweredBy")}</p>
                   </div>
                 </div>
               </div>
@@ -206,11 +280,7 @@ export default function Landing() {
       <section className="border-y bg-background">
         <div className="max-w-6xl mx-auto px-6 py-8">
           <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-6">
-            {[
-              { value: "6",       label: t("landing.stats.languages") },
-              { value: "< 2 min", label: t("landing.stats.importTime") },
-              { value: "0",       label: t("landing.stats.noApp") },
-            ].map(({ value, label }) => (
+            {stats.map(({ value, label }) => (
               <div key={label} className="text-center" data-testid={`stat-${label}`}>
                 <p className="text-3xl font-serif font-bold text-foreground tracking-tight">{value}</p>
                 <p className="text-sm text-muted-foreground mt-1">{label}</p>
@@ -346,21 +416,21 @@ export default function Landing() {
               <div className="space-y-2">
                 {[
                   {
-                    code: t("landing.demo.translate.lang1Code"),
-                    label: t("landing.aiProof.englishOrig"),
-                    desc: `${t("landing.demo.translate.dish")} — ${t("landing.demo.translate.originalDesc")}`,
+                    code:      t("landing.demo.translate.lang1Code"),
+                    label:     t("landing.aiProof.englishOrig"),
+                    desc:      `${t("landing.demo.translate.dish")} — ${t("landing.demo.translate.originalDesc")}`,
                     highlight: false,
                   },
                   {
-                    code: t("landing.demo.translate.lang2Code"),
-                    label: t("landing.demo.translate.lang2Label"),
-                    desc: `${t("landing.demo.translate.dish")} — ${t("landing.demo.translate.lang2Desc")}`,
+                    code:      t("landing.demo.translate.lang2Code"),
+                    label:     t("landing.demo.translate.lang2Label"),
+                    desc:      `${t("landing.demo.translate.dish")} — ${t("landing.demo.translate.lang2Desc")}`,
                     highlight: true,
                   },
                   {
-                    code: t("landing.demo.translate.lang3Code"),
-                    label: t("landing.demo.translate.lang3Label"),
-                    desc: `${t("landing.demo.translate.dish")} — ${t("landing.demo.translate.lang3Desc")}`,
+                    code:      t("landing.demo.translate.lang3Code"),
+                    label:     t("landing.demo.translate.lang3Label"),
+                    desc:      `${t("landing.demo.translate.dish")} — ${t("landing.demo.translate.lang3Desc")}`,
                     highlight: true,
                   },
                 ].map(({ code, label, desc, highlight }) => (
@@ -470,14 +540,14 @@ export default function Landing() {
                   <p className="text-base font-serif font-medium text-center">{t("landing.demo.guest.restaurant")}</p>
                   <p className="text-xs opacity-70 mt-0.5 text-center">{t("landing.demo.guest.restaurantSub")}</p>
                   <div className="flex gap-1.5 mt-3 justify-center flex-wrap">
-                    {["EN", "DE", "FR", "ES"].map((code, i) => (
+                    {validatedLanguages.slice(0, 4).map((lang, i) => (
                       <span
-                        key={code}
+                        key={lang.code}
                         className={`text-xs px-2.5 py-1 rounded-full font-mono font-medium ${
                           i === 0 ? "bg-white/20 text-white" : "opacity-50 text-white"
                         }`}
                       >
-                        {code}
+                        {lang.code.toUpperCase()}
                       </span>
                     ))}
                   </div>
@@ -500,24 +570,9 @@ export default function Landing() {
                 </div>
                 <div className="px-4 py-3 space-y-3">
                   {[
-                    {
-                      name:  t("landing.demo.guest.item1Name"),
-                      price: t("landing.demo.guest.item1Price"),
-                      desc:  t("landing.demo.guest.item1Desc"),
-                      tag:   t("landing.demo.guest.item1Tag"),
-                    },
-                    {
-                      name:  t("landing.demo.guest.item2Name"),
-                      price: t("landing.demo.guest.item2Price"),
-                      desc:  t("landing.demo.guest.item2Desc"),
-                      tag:   t("landing.demo.guest.item2Tag"),
-                    },
-                    {
-                      name:  t("landing.demo.guest.item3Name"),
-                      price: t("landing.demo.guest.item3Price"),
-                      desc:  t("landing.demo.guest.item3Desc"),
-                      tag:   t("landing.demo.guest.item3Tag"),
-                    },
+                    { name: t("landing.demo.guest.item1Name"), price: t("landing.demo.guest.item1Price"), desc: t("landing.demo.guest.item1Desc"), tag: t("landing.demo.guest.item1Tag") },
+                    { name: t("landing.demo.guest.item2Name"), price: t("landing.demo.guest.item2Price"), desc: t("landing.demo.guest.item2Desc"), tag: t("landing.demo.guest.item2Tag") },
+                    { name: t("landing.demo.guest.item3Name"), price: t("landing.demo.guest.item3Price"), desc: t("landing.demo.guest.item3Desc"), tag: t("landing.demo.guest.item3Tag") },
                   ].map((item) => (
                     <div key={item.name} className="rounded-2xl border bg-card p-3 shadow-sm">
                       <div className="flex items-start justify-between gap-2">
@@ -525,15 +580,11 @@ export default function Landing() {
                         <span className="text-sm font-bold text-primary shrink-0">{item.price}</span>
                       </div>
                       <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{item.desc}</p>
-                      <div className="flex gap-1 mt-2 flex-wrap">
-                        <span className="text-[10px] border rounded-full px-2 py-0.5 text-muted-foreground">{item.tag}</span>
-                      </div>
+                      <span className="inline-block text-[10px] border rounded-full px-2 py-0.5 text-muted-foreground mt-2">{item.tag}</span>
                     </div>
                   ))}
                 </div>
-                <p className="text-[10px] text-center text-muted-foreground/40 pb-4">
-                  {t("landing.mockup.poweredBy")}
-                </p>
+                <p className="text-[10px] text-center text-muted-foreground/40 pb-4">{t("landing.mockup.poweredBy")}</p>
               </div>
             </div>
           </div>
@@ -562,6 +613,89 @@ export default function Landing() {
             ))}
           </div>
           <p className="text-xs text-muted-foreground mt-6">{t("landing.languages.note")}</p>
+        </div>
+      </section>
+
+      {/* ─── PRICING ─── */}
+      <section className="py-24">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-3">
+              {t("landing.pricing.sectionLabel")}
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-serif">{t("landing.pricing.title")}</h2>
+            <p className="text-muted-foreground mt-4 max-w-lg mx-auto">{t("landing.pricing.subtitle")}</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5 mb-10">
+            {plans.map((plan) => (
+              <div
+                key={plan.id}
+                className={`rounded-2xl border p-6 flex flex-col ${
+                  plan.popular
+                    ? "border-primary/40 bg-primary/[0.03] shadow-lg shadow-primary/5"
+                    : "bg-card"
+                }`}
+                data-testid={`pricing-card-${plan.id}`}
+              >
+                {plan.popular && (
+                  <Badge className="self-start mb-4 text-xs bg-primary/10 text-primary border-primary/20 hover:bg-primary/10 rounded-full">
+                    {t("pricing.popular")}
+                  </Badge>
+                )}
+                <p className="font-sans-heading text-base mb-1">{plan.name}</p>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="text-3xl font-serif font-bold">{plan.price}</span>
+                  <span className="text-sm text-muted-foreground">{plan.period}</span>
+                </div>
+                <p className="text-xs text-muted-foreground mb-5 leading-relaxed">{plan.tagline}</p>
+                <ul className="space-y-2 mb-6 flex-1">
+                  {plan.highlights.map((h) => (
+                    <li key={h} className="flex items-start gap-2 text-sm">
+                      <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">{h}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  variant={plan.popular ? "default" : "outline"}
+                  className="w-full"
+                  data-testid={`pricing-cta-${plan.id}`}
+                  onClick={() => { window.location.href = "/api/login"; }}
+                >
+                  {plan.cta} <ArrowRight className="h-3.5 w-3.5 ml-1.5" />
+                </Button>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Button
+              variant="ghost"
+              className="text-primary hover:text-primary hover:bg-primary/5"
+              onClick={() => { window.location.href = "/preise"; }}
+              data-testid="button-view-all-pricing"
+            >
+              {t("landing.pricing.viewAll")} <ArrowRight className="h-3.5 w-3.5 ml-1.5" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── FAQ ─── */}
+      <section className="py-20 bg-muted/30">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-3">
+              {t("landing.faq.sectionLabel")}
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-serif">{t("landing.faq.title")}</h2>
+          </div>
+          <div className="rounded-2xl border bg-card px-6">
+            {faqItems.map((item) => (
+              <FaqItem key={item.q} q={item.q} a={item.a} />
+            ))}
+          </div>
         </div>
       </section>
 

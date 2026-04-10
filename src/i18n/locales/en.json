@@ -149,7 +149,10 @@
     "stats": {
       "languages": "Guest languages",
       "importTime": "to import a menu",
-      "noApp": "No guest app needed"
+      "noApp": "No guest app needed",
+      "languagesValue": "6",
+      "importTimeValue": "< 2 min",
+      "noAppValue": "0"
     },
     "demo": {
       "ai": {
@@ -190,6 +193,31 @@
         "item3Desc": "Buffalo mozzarella, heritage tomatoes, basil oil.",
         "item3Tag": "Dairy"
       }
+    },
+    "pricing": {
+      "sectionLabel": "Pricing",
+      "title": "Simple, transparent pricing",
+      "subtitle": "Start with the free plan. No risk.",
+      "viewAll": "View full pricing",
+      "free": {
+        "price": "/nix/store/smkzrg2vvp3lng3hq7v9svfni5mnqjh2-bash-interactive-5.2p37/bin/bash",
+        "period": "free",
+        "cta": "Start for free"
+      },
+      "starter": {
+        "price": "$19",
+        "period": "/ month",
+        "cta": "Start Starter"
+      },
+      "pro": {
+        "price": "$49",
+        "period": "/ month",
+        "cta": "Start Pro"
+      }
+    },
+    "faq": {
+      "sectionLabel": "FAQ",
+      "title": "Frequently asked questions"
     }
   },
   "pricing": {
