@@ -1,24 +1,31 @@
 import { formatPrice } from "@/lib/menu-utils";
 import { resolveTranslation } from "@/lib/i18n-utils";
-import type { MenuItem, MenuCategory } from "@/types/menu";
+import type { MenuItem, MenuCategory, Restaurant } from "@/types/menu";
 
 interface PrintMenuViewProps {
-  restaurantName: string;
+  restaurant?: Restaurant | null;
+  restaurantName?: string;
   categories: MenuCategory[];
-  items: MenuItem[];
+  menuItems?: MenuItem[];
+  items?: MenuItem[];
   currency?: string;
   lang?: string;
   baseLang?: string;
 }
 
 export function PrintMenuView({
+  restaurant,
   restaurantName,
   categories,
+  menuItems,
   items,
-  currency = "USD",
+  currency,
   lang = "en",
   baseLang = "en",
 }: PrintMenuViewProps) {
+  const resolvedName = restaurantName ?? restaurant?.name ?? "";
+  const resolvedItems = items ?? menuItems ?? [];
+  const resolvedCurrency = currency ?? restaurant?.currency ?? "USD";
   return (
     <div
       style={{
@@ -32,12 +39,12 @@ export function PrintMenuView({
     >
       {/* Header */}
       <div style={{ borderBottom: "2px solid #111", paddingBottom: 16, marginBottom: 32 }}>
-        <h1 style={{ fontSize: 32, fontWeight: 700, margin: 0 }}>{restaurantName}</h1>
+        <h1 style={{ fontSize: 32, fontWeight: 700, margin: 0 }}>{resolvedName}</h1>
       </div>
 
       {/* Categories */}
       {categories.map((cat) => {
-        const catItems = items.filter((i) => i.categoryId === cat.id && i.isAvailable);
+        const catItems = resolvedItems.filter((i) => i.categoryId === cat.id && i.isAvailable);
         if (catItems.length === 0) return null;
 
         const catName =
@@ -126,7 +133,7 @@ export function PrintMenuView({
                     )}
                   </div>
                   <span style={{ fontWeight: 700, fontSize: 14, flexShrink: 0, color: "#111" }}>
-                    {formatPrice(item.price, currency)}
+                    {formatPrice(item.price, resolvedCurrency)}
                   </span>
                 </div>
               );
