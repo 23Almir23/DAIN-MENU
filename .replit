@@ -50,4 +50,3 @@ externalPort = 3001
 [userenv]
 
 [userenv.shared]
-ADMIN_CLEANUP_TOKEN = "9me03nop8q7hu0n4tfb5qtd1g8imy9gm"
