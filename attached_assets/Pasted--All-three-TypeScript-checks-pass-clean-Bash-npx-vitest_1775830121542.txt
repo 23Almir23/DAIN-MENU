@@ -1,0 +1,1775 @@
+⏺ All three TypeScript checks pass clean.
+
+⏺ Bash(npx vitest run 2>&1)
+  ⎿   RUN  v3.2.4 /Users/almir/Documents/DAIN-MENU
+
+      ✓ src/test/example.test.ts (1 test) 1ms
+     … +7 lines (ctrl+o to expand)
+
+⏺ All tests pass. Now committing:
+
+⏺ Bash(git add src/lib/themes.ts server/schema.ts src/types/menu.ts
+      src/hooks/use-public-restaurant.ts server/routes.ts src/pages/Settings.tsx
+       src/pages/GuestPreview.t…)
+  ⎿  On branch main
+     Your branch is ahead of 'origin/main' by 5 commits.
+       (use "git push" to publish your local commits)
+     … +12 lines (ctrl+o to expand)
+
+⏺ Bash(git commit -m "$(cat <<'EOF'
+      feat: 4 design templates + print export PDF…)
+  ⎿  Running…
+  ⎿  Interrupted · What should Claude do instead?
+
+❯ Continue where you left off. Run npx tsc --noEmit and npx vitest run, then    
+  commit.                                                                       
+
+⏺ Bash(npx tsc --noEmit 2>&1 && npx tsc --noEmit -p tsconfig.app.json 2>&1 &&
+      npx tsc --noEmit -p tsconfig.server.json 2>&1 && echo "ALL CLEAN")
+  ⎿  ALL CLEAN
+
+⏺ Bash(npx vitest run 2>&1)
+  ⎿   RUN  v3.2.4 /Users/almir/Documents/DAIN-MENU
+
+      ✓ src/test/example.test.ts (1 test) 1ms
+     … +7 lines (ctrl+o to expand)
+
+⏺ Clean. Committing:
+
+⏺ Bash(git add src/lib/themes.ts server/schema.ts src/types/menu.ts
+      src/hooks/use-public-restaurant.ts server/routes.ts src/pages/Settings.tsx
+       src/pages/GuestPreview.t…)
+  ⎿  [main 106100c] feat: 4 design templates + print export PDF
+      9 files changed, 422 insertions(+), 66 deletions(-)
+      create mode 100644 src/components/PrintMenuView.tsx
+      create mode 100644 src/lib/themes.ts
+
+⏺ Done. Committed as feat: 4 design templates + print export PDF (9 files
+  changed, 422 insertions).
+
+  Reminder for Replit: The template column migration needs to be applied on
+  Replit where DATABASE_URL is available:
+  npx drizzle-kit generate
+  npx drizzle-kit push
+
+✻ Brewed for 31s
+
+❯ Run the database migration on the remote database.                            
+  The DATABASE_URL is only available on Replit, not locally.                    
+  Add a note in CLAUDE.md Decision Log that the template column migration       
+  must be pushed via Replit Shell after deploy.                                 
+
+⏺ Bash(echo $DATABASE_URL)
+  ⎿  (No output)
+
+⏺ No DATABASE_URL locally — migration can't run here. Adding the Decision Log
+  entry to CLAUDE.md:
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ No existing Decision Log section. I'll append one at the end of the file.
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Update(CLAUDE.md)
+  ⎿  Added 23 lines
+      174  |----------|--------|-------|
+      175  | `DATABASE_URL`, `PGHOST`, `PGPORT`, `PGUSER`, `PGPASSWORD`,
+           `PGDATABASE` | Automatisch (Replit PostgreSQL) | DB-Verbindung
+            |
+      176  | `GEMINI_API_KEY` | Manuell in Replit Secrets | Alle KI-Featu
+           res |
+      177 +| `INVITE_ENABLED` | `.env` / Replit Secrets | Invite-only gat
+          +e (true/false) |                                              
+      178 +| `INVITE_TOKENS` | `.env` / Replit Secrets | Komma-getrennte 
+          +gültige Invite-Tokens |                                       
+      179 +| `SENTRY_DSN_BACKEND` | Replit Secrets | Sentry Node.js error
+          + tracking |                                                   
+      180 +| `VITE_SENTRY_DSN_FRONTEND` | Replit Secrets | Sentry React e
+          +rror tracking |                                               
+      181 +                                                              
+      182 +---                                                           
+      183 +                                                              
+      184 +## Decision Log                                               
+      185 +                                                              
+      186 +### 2026-04-10 — `template` Column Migration (Replit only)    
+      187 +                                                              
+      188 +`restaurants.template` (`text`, default `"noir"`) wurde in `se
+          +rver/schema.ts` hinzugefügt.                                  
+      189 +                                                              
+      190 +**Die Migration kann nur auf Replit ausgeführt werden**, da `D
+          +ATABASE_URL` lokal nicht verfügbar ist.                       
+      191 +                                                              
+      192 +Nach jedem Deploy, der Schema-Änderungen enthält, im **Replit 
+          +Shell** ausführen:                                            
+      193 +                                                              
+      194 +```bash                                                       
+      195 +npx drizzle-kit generate                                      
+      196 +npx drizzle-kit push                                          
+      197 +```                                                           
+      198 +                                                              
+      199 +Niemals lokal ausführen — der Befehl schlägt still fehl oder t
+          +rifft die falsche Datenbank.                                  
+
+⏺ Bash(git add CLAUDE.md && git commit -m "$(cat <<'EOF'
+      docs: add Decision Log + full env var table to CLAUDE.md…)
+  ⎿  [main 39659bb] docs: add Decision Log + full env var table to CLAUDE.m
+     d
+      1 file changed, 23 insertions(+)
+
+⏺ Done. What was added:
+
+  - Decision Log section at the bottom of CLAUDE.md documenting that the
+  template migration must run in Replit Shell via npx drizzle-kit generate &&
+  npx drizzle-kit push
+  - Completed the env var table — added INVITE_ENABLED, INVITE_TOKENS,
+  SENTRY_DSN_BACKEND, VITE_SENTRY_DSN_FRONTEND which were previously missing
+
+  To apply the migration: open the Replit Shell and run:
+  npx drizzle-kit generate
+  npx drizzle-kit push
+
+❯ Read CLAUDE.md before starting.                                               
+                                                                                
+  The template system (themes.ts, DB schema, template picker) and print export  
+  PDF                                                                           
+  were already built in the previous commit. Do NOT rebuild those.              
+                                                                                
+  This sprint is ONLY the Guest View layout redesign.                           
+                                                                                
+  **TASK — Rebuild Guest View layout (src/pages/GuestView.tsx or equivalent)**  
+                                                                                
+  Keep all existing logic: language resolution, resolveTranslation(),           
+  isFallback,                                                                   
+  usePublicMenu, usePublicRestaurant, OG tags. Only change the visual layout.   
+                                                                                
+  New layout structure:                                                         
+                                                                                
+  HEADER:                                                                       
+  - Full-width restaurant cover photo at top, height 200px, object-fit cover    
+  - If no photo: solid accent color (#c9703a) header block,                     
+    restaurant name centered in white (DM Sans 700, 28px),                      
+    subtle dark overlay for depth                                               
+  - Language selector pill — top right, overlaid on photo/header                
+  - White card overlapping photo by 20px (border-radius 16px top corners)       
+  - Inside card: restaurant name (bold 24px), address + phone inline with       
+  icons,                                                                        
+    WiFi password if set, description text                                      
+  - Menu/section tabs as pill buttons below info                                
+    (filled Terracotta = active, outlined = inactive)                           
+                                                                                
+  CATEGORY SECTIONS:                                                            
+  - If category has no items with photos: bold uppercase heading, items listed  
+  below                                                                         
+  - If any item in category has photo: full-width banner image with category    
+  name                                                                          
+    overlaid (white text, dark gradient overlay)                                
+                                                                                
+  ITEM CARDS (item has photo):                                                  
+  - Full-width photo, 16:9 ratio, border-radius 12px                            
+  - Below: item name bold left + portion/weight right (muted)                   
+  - Description small muted text                                                
+  - Price in var(--accent) bold + currency superscript                          
+  - Allergen badges as small pills if present                                   
+  - Divider between items                                                       
+                                                                                
+  ITEM ROWS (item has NO photo):                                                
+  - Name left + price right, same line                                          
+  - Description below in muted text                                             
+  - Thin divider                                                                
+                                                                                
+  GLOBAL STYLES:                                                                
+  - Background: var(--bg) from active theme (default #F5F5F5)                   
+  - Cards: var(--bg-card) with subtle shadow (0 1px 3px rgba(0,0,0,0.08))       
+  - All colors via CSS variables from themes.ts                                 
+  - Font: DM Sans throughout                                                    
+  - Mobile-first, max-width 480px centered on desktop                           
+  - No sticky bottom bar unless already exists                                  
+                                                                                
+  Run npx tsc --noEmit, confirm clean.                                          
+  Commit as "feat: guest view layout rede                                       
+
+  Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+⏺ Now let me read the rest of ThemedMenuItem and the Restaurant type:
+
+  Read 2 files (ctrl+o to expand)
+
+⏺ Let me check the public restaurant route and what fields it exposes:
+
+  Searched for 2 patterns (ctrl+o to expand)
+
+⏺ Need to check what columns the schema has and extend the public endpoint:
+
+  Searched for 3 patterns, read 1 file (ctrl+o to expand)
+
+⏺ Good. I have the full picture. Now I'll make the changes:
+
+  1. Extend the public restaurant API to return display fields
+  2. Update PublicRestaurantData
+  3. Rewrite renderMenu() + item components in GuestPreview.tsx
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Update(server/routes.ts)
+  ⎿  Added 15 lines, removed 1 line
+      187      try {
+      188        const { restaurantId } = req.params;
+      189        const [r] = await db
+      190 -        .select({ name: restaurants.name, cuisine: restaurants
+          -.cuisine, guestTheme: restaurants.guestTheme, template: restau
+          -rants.template, baseLanguage: restaurants.baseLanguage, curren
+          -cy: restaurants.currency, defaultLocale: restaurants.defaultLo
+          -cale })                                                       
+      190 +        .select({                                             
+      191 +          name: restaurants.name,                             
+      192 +          cuisine: restaurants.cuisine,                       
+      193 +          guestTheme: restaurants.guestTheme,                 
+      194 +          template: restaurants.template,                     
+      195 +          baseLanguage: restaurants.baseLanguage,             
+      196 +          currency: restaurants.currency,                     
+      197 +          defaultLocale: restaurants.defaultLocale,           
+      198 +          description: restaurants.description,               
+      199 +          address: restaurants.address,                       
+      200 +          phone: restaurants.phone,                           
+      201 +          coverImage: restaurants.coverImage,                 
+      202 +          guestContactInfo: restaurants.guestContactInfo,     
+      203 +          city: restaurants.city,                             
+      204 +        })                                                    
+      205          .from(restaurants)
+      206          .where(eq(restaurants.id, restaurantId))
+      207          .limit(1);
+
+⏺ Update(src/hooks/use-public-restaurant.ts)
+  ⎿  Added 7 lines
+       9    baseLanguage: string;
+      10    currency?: string;
+      11    defaultLocale?: string;
+      12 +  // Guest view display fields                                 
+      13 +  description?: string;                                        
+      14 +  address?: string;                                            
+      15 +  phone?: string;                                              
+      16 +  coverImage?: string;                                         
+      17 +  guestContactInfo?: string;                                   
+      18 +  city?: string;                                               
+      19  }
+      20  
+      21  async function fetchPublicRestaurant(restaurantId: string): Pro
+          mise<PublicRestaurantData> {
+
+⏺ Now rewrite the GuestPreview — starting with the lucide imports:
+
+⏺ Update(src/pages/GuestPreview.tsx)
+  ⎿  Added 1 line, removed 1 line
+      10  import { Button } from "@/components/ui/button";
+      11  import { Card, CardContent } from "@/components/ui/card";
+      12  import { Input } from "@/components/ui/input";
+      13 -import { Star, Leaf, Smartphone, Monitor, ChefHat, Globe, Palet
+         -te, Check, Lock, QrCode, X, Sparkles, Copy } from "lucide-react
+         -";                                                             
+      13 +import { Star, Leaf, Smartphone, Monitor, ChefHat, Globe, Palet
+         +te, Check, Lock, QrCode, X, Sparkles, Copy, MapPin, Phone, Wifi
+         + } from "lucide-react";                                        
+      14  import { sortCategories, formatPrice } from "@/lib/menu-utils";
+      15  import {
+      16    resolveTranslation,
+
+⏺ Now replace the entire renderMenu function. First confirm the exact open/close
+   boundaries:
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Update(src/pages/GuestPreview.tsx)
+  ⎿  Added 9 lines, removed 3 lines
+      213      toast.success(`Guest menu theme set to "${GUEST_THEMES.fin
+           d(t => t.id === id)?.name}"`);
+      214    };
+      215  
+      216 -  // ── Themed menu renderer ──                               
+      216 +  // ── Guest view renderer ──                                
+      217  
+      218    const renderMenu = (forceMobile = false, frame = true) => {
+      219 -    const t = theme.preview;                                  
+      219      const isMobile = forceMobile || device === "mobile";
+      221 -    const width = isMobile ? "w-full max-w-[375px]" : "w-full 
+          -max-w-2xl";                                                   
+      220 +    const width = isMobile ? "w-full max-w-[480px]" : "w-full 
+          +max-w-2xl";                                                   
+      221  
+      222 +    // Active category info for banner/heading                
+      223 +    const activeCat = sorted.find((c) => c.id === effectiveAct
+          +iveCategory);                                                 
+      224 +    const catTrans = selectedLang !== baseLangCode && activeCa
+          +t?.translations?.[selectedLang];                              
+      225 +    const activeCatName = catTrans ? catTrans.name : activeCat
+          +?.name ?? "";                                                 
+      226 +    const catHasPhotos = filteredItems.some((i) => i.image);  
+      227 +    const catBannerImage = filteredItems.find((i) => i.image)?
+          +.image as string | undefined;                                 
+      228 +                                                              
+      229      return (
+      230        <div
+      231          className={`overflow-hidden transition-all ${frame ? "
+           shadow-2xl" : ""} ${width}`}
+
+⏺ Now replace the entire body of renderMenu (the return statement):
+
+⏺ Update(src/pages/GuestPreview.tsx)
+  ⎿  Added 357 lines, removed 208 lines
+      231          className={`overflow-hidden transition-all ${frame ? "
+           shadow-2xl" : ""} ${width}`}
+      232          style={{
+      233            ...templateVars,
+      234 -          borderRadius: frame ? (t.borderRadius === "1rem" ? "
+          -1.25rem" : t.borderRadius === "0.75rem" ? "1rem" : "0.75rem") 
+          -: "0",                                                        
+      234 +          borderRadius: frame ? "1.25rem" : 0,                
+      235            backgroundColor: "var(--bg)",
+      236            minHeight: 600,
+      237 +          fontFamily: "'DM Sans', system-ui, sans-serif",     
+      238          }}
+      239        >
+      239 -        {/* Header */}                                        
+      240 +        {/* ── HEADER: cover photo or accent-colour block ── *
+          +/}                                                            
+      241 +        <div style={{ position: "relative" }}>                
+      242 +          {restaurant?.coverImage ? (                         
+      243 +            <img                                              
+      244 +              src={restaurant.coverImage}                     
+      245 +              alt={restaurant.name ?? ""}                     
+      246 +              style={{ width: "100%", height: 200, objectFit: 
+          +"cover", display: "block" }}                                  
+      247 +            />                                                
+      248 +          ) : (                                               
+      249 +            <div                                              
+      250 +              style={{                                        
+      251 +                height: 200,                                  
+      252 +                backgroundColor: "var(--accent)",             
+      253 +                display: "flex",                              
+      254 +                alignItems: "center",                         
+      255 +                justifyContent: "center",                     
+      256 +                position: "relative",                         
+      257 +                overflow: "hidden",                           
+      258 +              }}                                              
+      259 +            >                                                 
+      260 +              <div style={{ position: "absolute", inset: 0, ba
+          +ckgroundColor: "rgba(0,0,0,0.18)" }} />                       
+      261 +              <h1                                             
+      262 +                style={{                                      
+      263 +                  color: "#fff",                              
+      264 +                  fontSize: 28,                               
+      265 +                  fontWeight: 700,                            
+      266 +                  fontFamily: "'DM Sans', system-ui, sans-seri
+          +f",                                                           
+      267 +                  textAlign: "center",                        
+      268 +                  padding: "0 24px",                          
+      269 +                  position: "relative",                       
+      270 +                  zIndex: 1,                                  
+      271 +                  margin: 0,                                  
+      272 +                  lineHeight: 1.25,                           
+      273 +                }}                                            
+      274 +              >                                               
+      275 +                {restaurant?.name ?? ""}                      
+      276 +              </h1>                                           
+      277 +            </div>                                            
+      278 +          )}                                                  
+      279 +                                                              
+      280 +          {/* Language selector — overlaid top-right on the ph
+          +oto/header */}                                                
+      281 +          {languageOptions.length > 0 && (                    
+      282 +            <div style={{ position: "absolute", top: 12, right
+          +: 12, display: "flex", gap: 4, zIndex: 10 }}>                 
+      283 +              {languageOptions.length === 1 ? (               
+      284 +                <span                                         
+      285 +                  style={{                                    
+      286 +                    padding: "4px 10px",                      
+      287 +                    borderRadius: 999,                        
+      288 +                    fontSize: 11,                             
+      289 +                    fontFamily: "'DM Sans', system-ui, sans-se
+          +rif",                                                         
+      290 +                    backgroundColor: "rgba(0,0,0,0.45)",      
+      291 +                    backdropFilter: "blur(4px)",              
+      292 +                    color: "#fff",                            
+      293 +                    display: "flex",                          
+      294 +                    alignItems: "center",                     
+      295 +                    gap: 4,                                   
+      296 +                  }}                                          
+      297 +                >                                             
+      298 +                  <span>{languageOptions[0].flag}</span>      
+      299 +                  {languageOptions[0].nativeLabel}            
+      300 +                </span>                                       
+      301 +              ) : (                                           
+      302 +                languageOptions.map((lang) => (               
+      303 +                  <button                                     
+      304 +                    key={lang.code}                           
+      305 +                    onClick={() => setSelectedLang(lang.code)}
+      306 +                    style={{                                  
+      307 +                      padding: "4px 10px",                    
+      308 +                      borderRadius: 999,                      
+      309 +                      fontSize: 11,                           
+      310 +                      fontFamily: "'DM Sans', system-ui, sans-
+          +serif",                                                       
+      311 +                      backgroundColor: selectedLang === lang.c
+          +ode ? "rgba(0,0,0,0.65)" : "rgba(0,0,0,0.35)",                
+      312 +                      backdropFilter: "blur(4px)",            
+      313 +                      color: "#fff",                          
+      314 +                      border: selectedLang === lang.code ? "1p
+          +x solid rgba(255,255,255,0.5)" : "1px solid transparent",     
+      315 +                      display: "flex",                        
+      316 +                      alignItems: "center",                   
+      317 +                      gap: 4,                                 
+      318 +                      cursor: "pointer",                      
+      319 +                    }}                                        
+      320 +                  >                                           
+      321 +                    <span>{lang.flag}</span>                  
+      322 +                    {lang.nativeLabel}                        
+      323 +                  </button>                                   
+      324 +                ))                                            
+      325 +              )}                                              
+      326 +            </div>                                            
+      327 +          )}                                                  
+      328 +        </div>                                                
+      329 +                                                              
+      330 +        {/* ── INFO CARD — overlaps photo by 20px, rounded top
+          + corners ── */}                                               
+      331          <div
+      241 -          className="p-6 text-center"                         
+      242 -          style={{ backgroundColor: "var(--bg)", color: "var(-
+          --text-primary)", borderBottom: "1px solid var(--border)" }}   
+      332 +          style={{                                            
+      333 +            marginTop: -20,                                   
+      334 +            backgroundColor: "var(--bg-card)",                
+      335 +            borderRadius: "16px 16px 0 0",                    
+      336 +            padding: "20px 16px 0",                           
+      337 +            position: "relative",                             
+      338 +            zIndex: 1,                                        
+      339 +            boxShadow: "0 -4px 12px rgba(0,0,0,0.07)",        
+      340 +          }}                                                  
+      341          >
+      342            <h2
+      245 -            className="text-xl"                               
+      246 -            style={{ fontFamily: t.fontHeading, fontWeight: th
+          -eme.id === "contemporary" ? 700 : 400 }}                      
+      343 +            style={{                                          
+      344 +              fontWeight: 700,                                
+      345 +              fontSize: 24,                                   
+      346 +              color: "var(--text-primary)",                   
+      347 +              margin: 0,                                      
+      348 +              lineHeight: 1.2,                                
+      349 +              fontFamily: "'DM Sans', system-ui, sans-serif", 
+      350 +            }}                                                
+      351            >
+      352              {restaurant?.name ?? ""}
+      353            </h2>
+      250 -          {restaurant?.cuisine && (                           
+      251 -            <p className="text-sm mt-1" style={{ opacity: 0.8,
+          - fontFamily: t.fontBody }}>                                   
+      252 -              {restaurant.cuisine}                            
+      354 +                                                              
+      355 +          {/* Address + phone inline with icons */}           
+      356 +          {(restaurant?.address || restaurant?.phone) && (    
+      357 +            <div                                              
+      358 +              style={{                                        
+      359 +                display: "flex",                              
+      360 +                flexWrap: "wrap",                             
+      361 +                gap: "4px 12px",                              
+      362 +                marginTop: 8,                                 
+      363 +                fontSize: 13,                                 
+      364 +                color: "var(--text-secondary)",               
+      365 +              }}                                              
+      366 +            >                                                 
+      367 +              {restaurant?.address && (                       
+      368 +                <span style={{ display: "flex", alignItems: "c
+          +enter", gap: 4 }}>                                            
+      369 +                  <MapPin style={{ width: 12, height: 12, flex
+          +Shrink: 0 }} />                                               
+      370 +                  {restaurant.address}{restaurant.city ? `, ${
+          +restaurant.city}` : ""}                                       
+      371 +                </span>                                       
+      372 +              )}                                              
+      373 +              {restaurant?.phone && (                         
+      374 +                <span style={{ display: "flex", alignItems: "c
+          +enter", gap: 4 }}>                                            
+      375 +                  <Phone style={{ width: 12, height: 12, flexS
+          +hrink: 0 }} />                                                
+      376 +                  {restaurant.phone}                          
+      377 +                </span>                                       
+      378 +              )}                                              
+      379 +            </div>                                            
+      380 +          )}                                                  
+      381 +                                                              
+      382 +          {/* WiFi password */}                               
+      383 +          {restaurant?.guestContactInfo && (                  
+      384 +            <div                                              
+      385 +              style={{                                        
+      386 +                display: "flex",                              
+      387 +                alignItems: "center",                         
+      388 +                gap: 4,                                       
+      389 +                marginTop: 6,                                 
+      390 +                fontSize: 13,                                 
+      391 +                color: "var(--text-secondary)",               
+      392 +              }}                                              
+      393 +            >                                                 
+      394 +              <Wifi style={{ width: 12, height: 12, flexShrink
+          +: 0 }} />                                                     
+      395 +              {restaurant.guestContactInfo}                   
+      396 +            </div>                                            
+      397 +          )}                                                  
+      398 +                                                              
+      399 +          {/* Description */}                                 
+      400 +          {restaurant?.description && (                       
+      401 +            <p                                                
+      402 +              style={{                                        
+      403 +                marginTop: 8,                                 
+      404 +                fontSize: 13,                                 
+      405 +                color: "var(--text-secondary)",               
+      406 +                lineHeight: 1.55,                             
+      407 +              }}                                              
+      408 +            >                                                 
+      409 +              {restaurant.description}                        
+      410              </p>
+      411            )}
+      255 -        </div>                                                
+      412  
+      257 -        {/* Language switcher — always visible so guests know 
+          -the menu language even                                        
+      258 -            before translations exist. When only one language 
+          -exists (no translations)                                      
+      259 -            the pill is non-interactive to avoid a false click
+          -able affordance. */}                                          
+      260 -        <div                                                  
+      261 -          className="px-3 py-2.5 flex items-center gap-2 overf
+          -low-x-auto scrollbar-hide"                                    
+      262 -          style={{ borderBottom: "1px solid var(--border)" }} 
+      263 -        >                                                     
+      264 -          <Globe className="h-3.5 w-3.5 shrink-0" style={{ col
+          -or: "var(--accent)" }} />                                     
+      265 -          {languageOptions.length === 1 ? (                   
+      266 -            <span                                             
+      267 -              className="px-2.5 py-1 rounded-full text-xs whit
+          -espace-nowrap flex items-center gap-1"                        
+      413 +          {/* ── CATEGORY TABS as pill buttons ── */}         
+      414 +          {sorted.length > 0 && (                             
+      415 +            <div                                              
+      416                style={{
+      269 -                fontFamily: t.fontBody,                       
+      270 -                backgroundColor: "var(--accent)",             
+      271 -                color: "#fff",                                
+      417 +                overflowX: "auto",                            
+      418 +                marginLeft: -16,                              
+      419 +                marginRight: -16,                             
+      420 +                paddingLeft: 16,                              
+      421 +                paddingRight: 16,                             
+      422 +                scrollbarWidth: "none",                       
+      423 +                marginTop: 16,                                
+      424                }}
+      425              >
+      274 -              <span>{languageOptions[0].flag}</span> {language
+          -Options[0].nativeLabel}                                       
+      275 -            </span>                                           
+      276 -          ) : (                                               
+      277 -            languageOptions.map((lang) => (                   
+      278 -              <button                                         
+      279 -                key={lang.code}                               
+      280 -                onClick={() => setSelectedLang(lang.code)}    
+      281 -                className="px-2.5 py-1 rounded-full text-xs wh
+          -itespace-nowrap transition-colors flex items-center gap-1"    
+      282 -                style={{                                      
+      283 -                  fontFamily: t.fontBody,                     
+      284 -                  backgroundColor: selectedLang === lang.code 
+          -? "var(--accent)" : "var(--bg-card)",                         
+      285 -                  color: selectedLang === lang.code ? "#fff" :
+          - "var(--text-secondary)",                                     
+      286 -                }}                                            
+      287 -              >                                               
+      288 -                <span>{lang.flag}</span> {lang.nativeLabel}   
+      289 -              </button>                                       
+      290 -            ))                                                
+      426 +              <div style={{ display: "flex", gap: 8, paddingBo
+          +ttom: 16 }}>                                                  
+      427 +                {sorted.map((cat) => {                        
+      428 +                  const catItemCount = menuItems.filter((i) =>
+          + i.categoryId === cat.id && i.isAvailable).length;            
+      429 +                  if (catItemCount === 0 && standalone) return
+          + null;                                                        
+      430 +                  const cTrans = selectedLang !== baseLangCode
+          + && cat.translations?.[selectedLang];                         
+      431 +                  const cName = cTrans ? cTrans.name : cat.nam
+          +e;                                                            
+      432 +                  const cIsFallback = !cTrans && selectedLang 
+          +!== baseLangCode;                                             
+      433 +                  const isActive = effectiveActiveCategory ===
+          + cat.id;                                                      
+      434 +                  return (                                    
+      435 +                    <button                                   
+      436 +                      key={cat.id}                            
+      437 +                      onClick={() => setActiveCategory(cat.id)
+          +}                                                             
+      438 +                      style={{                                
+      439 +                        padding: "7px 16px",                  
+      440 +                        borderRadius: 999,                    
+      441 +                        backgroundColor: isActive ? "var(--acc
+          +ent)" : "transparent",                                        
+      442 +                        border: isActive ? "none" : "1.5px sol
+          +id var(--border)",                                            
+      443 +                        color: isActive ? "#fff" : "var(--text
+          +-secondary)",                                                 
+      444 +                        fontWeight: 500,                      
+      445 +                        fontSize: 14,                         
+      446 +                        whiteSpace: "nowrap",                 
+      447 +                        cursor: "pointer",                    
+      448 +                        fontFamily: "'DM Sans', system-ui, san
+          +s-serif",                                                     
+      449 +                        display: "flex",                      
+      450 +                        alignItems: "center",                 
+      451 +                        gap: 4,                               
+      452 +                        flexShrink: 0,                        
+      453 +                      }}                                      
+      454 +                    >                                         
+      455 +                      {cName}                                 
+      456 +                      {cIsFallback && (                       
+      457 +                        <span style={{ fontSize: 9, opacity: 0
+          +.6, color: isActive ? "#fff" : "#999" }}>                     
+      458 +                          {baseLangCode.toUpperCase()}        
+      459 +                        </span>                               
+      460 +                      )}                                      
+      461 +                    </button>                                 
+      462 +                  );                                          
+      463 +                })}                                           
+      464 +              </div>                                          
+      465 +            </div>                                            
+      466            )}
+      467          </div>
+      468  
+      294 -        {/* Empty state — guarded by isLoading so admin previe
+          -w never flashes "No items yet" before data arrives */}        
+      469 +        {/* ── MAIN CONTENT ── */}                            
+      470 +        {/* Empty state — guarded by isLoading so preview neve
+          +r flashes before data arrives */}                             
+      471          {isLoading ? null : !hasAnyItems ? (
+      296 -          <div className="py-16 text-center px-6" style={{ fon
+          -tFamily: t.fontBody }}>                                       
+      297 -            <p className="text-lg" style={{ fontFamily: t.font
+          -Heading, color: "#333" }}>                                    
+      472 +          <div style={{ padding: "64px 24px", textAlign: "cent
+          +er" }}>                                                       
+      473 +            <p style={{ fontSize: 18, fontWeight: 600, color: 
+          +"var(--text-primary)" }}>                                     
+      474                {standalone ? "Menu coming soon" : "No items yet
+           "}
+      475              </p>
+      300 -            <p className="text-sm mt-2" style={{ color: "#888"
+          - }}>                                                          
+      301 -              {standalone ? "Check back shortly — we're prepar
+          -ing something delicious." : "Add items in Menu Builder to see 
+          -them here."}                                                  
+      476 +            <p style={{ fontSize: 14, marginTop: 8, color: "va
+          +r(--text-secondary)" }}>                                      
+      477 +              {standalone                                     
+      478 +                ? "Check back shortly — we're preparing someth
+          +ing delicious."                                               
+      479 +                : "Add items in Menu Builder to see them here.
+          +"}                                                            
+      480              </p>
+      481            </div>
+      482          ) : (
+      483            <>
+      306 -            {/* Today's Specials section — shown when at least
+          - one available item is marked as special */}                  
+      484 +            {/* Today's Specials */}                          
+      485              {specialItems.length > 0 && (
+      308 -              <div                                            
+      309 -                className="px-4 py-4"                         
+      310 -                style={{ borderBottom: "1px solid var(--border
+          -)" }}                                                         
+      311 -              >                                               
+      312 -                <div className="flex items-center gap-1.5 mb-3
+          -">                                                            
+      313 -                  <Sparkles                                   
+      314 -                    className="h-3.5 w-3.5 shrink-0"          
+      315 -                    style={{ color: "var(--accent)" }}        
+      316 -                  />                                          
+      317 -                  <p                                          
+      318 -                    className="text-[10px] uppercase"         
+      319 -                    style={{ color: "var(--accent)", fontFamil
+          -y: t.fontBody, letterSpacing: "0.08em" }}                     
+      320 -                  >                                           
+      486 +              <div style={{ padding: "16px 16px 0", borderBott
+          +om: "1px solid var(--border)" }}>                             
+      487 +                <div style={{ display: "flex", alignItems: "ce
+          +nter", gap: 6, marginBottom: 10 }}>                           
+      488 +                  <Sparkles style={{ width: 13, height: 13, co
+          +lor: "var(--accent)", flexShrink: 0 }} />                     
+      489 +                  <p style={{ fontSize: 10, textTransform: "up
+          +percase" as const, letterSpacing: "0.08em", color: "var(--acce
+          +nt)", fontWeight: 700, margin: 0 }}>                          
+      490                      Today's Specials
+      491                    </p>
+      492                  </div>
+      324 -                <div className="space-y-2">                   
+      493 +                <div style={{ display: "flex", flexDirection: 
+          +"column" as const, gap: 10, paddingBottom: 16 }}>             
+      494                    {specialItems.map((item) => {
+      495                      const resolved = resolveTranslation(
+      496                        { name: item.name, description: item.des
+           cription },
+     ...
+      498                        selectedLang,
+      499                        baseLangCode
+      500                      );
+      332 -                    // Elegant / Maison special card          
+      333 -                    if (theme.id === "elegant") {             
+      334 -                      return (                                
+      335 -                        <div                                  
+      336 -                          key={item.id}                       
+      337 -                          className="py-3 px-3 rounded-sm flex
+          - items-start gap-3"                                           
+      338 -                          style={{ backgroundColor: "#f8f5f0",
+          - borderLeft: `2px solid ${t.accentColor}` }}                  
+      339 -                        >                                     
+      340 -                          {item.image && (                    
+      341 -                            <img src={item.image} alt={resolve
+          -d.name} className="w-12 h-12 rounded object-cover shrink-0" />
+      342 -                          )}                                  
+      343 -                          <div className="flex-1 min-w-0">    
+      344 -                            <div className="flex justify-betwe
+          -en items-baseline gap-2">                                     
+      345 -                              <div className="flex items-cente
+          -r gap-1.5 flex-wrap">                                         
+      346 -                                <span style={{ fontFamily: t.f
+          -ontHeading, color: t.accentColor }}>{resolved.name}</span>    
+      347 -                                <span className="text-[9px] px
+          --1.5 py-0.5 rounded-full shrink-0" style={{ backgroundColor: "
+          -#f0ece7", color: t.accentColor, letterSpacing: "0.05em" }}>Spe
+          -cial</span>                                                   
+      348 -                              </div>                          
+      349 -                              <span style={{ fontFamily: t.fon
+          -tHeading, color: "#444" }}>{formatPrice(item.price, currency)}
+          -</span>                                                       
+      350 -                            </div>                            
+      351 -                            {resolved.description && (        
+      352 -                              <p className="text-xs mt-0.5 lea
+          -ding-relaxed" style={{ color: "#888", fontStyle: "italic" }}>{
+          -resolved.description}</p>                                     
+      353 -                            )}                                
+      354 -                          </div>                              
+      355 -                        </div>                                
+      356 -                      );                                      
+      357 -                    }                                         
+      358 -                    // Contemporary / Studio special card     
+      359 -                    if (theme.id === "contemporary") {        
+      360 -                      return (                                
+      361 -                        <div                                  
+      362 -                          key={item.id}                       
+      363 -                          className="p-3 rounded-lg flex items
+          --start gap-3"                                                 
+      364 -                          style={{ backgroundColor: t.cardBg, 
+          -border: `1px solid ${t.accentColor}30`, borderLeft: `3px solid
+          - ${t.accentColor}` }}                                         
+      365 -                        >                                     
+      366 -                          {item.image && (                    
+      367 -                            <img src={item.image} alt={resolve
+          -d.name} className="w-12 h-12 object-cover shrink-0" style={{ b
+          -orderRadius: t.borderRadius }} />                             
+      368 -                          )}                                  
+      369 -                          <div className="flex-1 min-w-0">    
+      370 -                            <div className="flex justify-betwe
+          -en items-start gap-2">                                        
+      371 -                              <div>                           
+      372 -                                <div className="flex items-cen
+          -ter gap-1.5 flex-wrap mb-0.5">                                
+      373 -                                  <span className="text-sm fon
+          -t-semibold" style={{ fontFamily: t.fontHeading }}>{resolved.na
+          -me}</span>                                                    
+      374 -                                  <span className="text-[9px] 
+          -px-1.5 py-0.5 rounded font-medium shrink-0" style={{ backgroun
+          -dColor: `${t.accentColor}18`, color: t.accentColor }}>SPECIAL<
+          -/span>                                                        
+      375 -                                </div>                        
+      376 -                                {resolved.description && (    
+      377 -                                  <p className="text-xs leadin
+          -g-relaxed" style={{ color: "#6b7280" }}>{resolved.description}
+          -</p>                                                          
+      378 -                                )}                            
+      379 -                              </div>                          
+      380 -                              <span className="text-sm font-bo
+          -ld shrink-0" style={{ color: "#111" }}>{formatPrice(item.price
+          -, currency)}</span>                                           
+      381 -                            </div>                            
+      382 -                          </div>                              
+      383 -                        </div>                                
+      384 -                      );                                      
+      385 -                    }                                         
+      386 -                    // Warm / Osteria + custom fallback specia
+          -l card                                                        
+      501                      return (
+      502                        <div
+      503                          key={item.id}
+      390 -                        className="p-3 flex items-start gap-3"
+      391 -                        style={{ backgroundColor: "#fef5ec", b
+          -orderRadius: t.borderRadius, border: "1px solid #f0d5b0" }}   
+      504 +                        style={{                              
+      505 +                          display: "flex",                    
+      506 +                          gap: 10,                            
+      507 +                          padding: "10px 12px",               
+      508 +                          backgroundColor: "var(--bg-card)",  
+      509 +                          borderRadius: 10,                   
+      510 +                          borderLeft: "3px solid var(--accent)
+          +",                                                            
+      511 +                          boxShadow: "0 1px 3px rgba(0,0,0,0.0
+          +8)",                                                          
+      512 +                        }}                                    
+      513                        >
+      514                          {item.image && (
+      394 -                          <img src={item.image} alt={resolved.
+          -name} className="w-12 h-12 object-cover shrink-0" style={{ bor
+          -derRadius: t.borderRadius }} />                               
+      515 +                          <img                                
+      516 +                            src={item.image}                  
+      517 +                            alt={resolved.name}               
+      518 +                            style={{ width: 48, height: 48, bo
+          +rderRadius: 8, objectFit: "cover", flexShrink: 0 }}           
+      519 +                          />                                  
+      520                          )}
+      396 -                        <div className="flex-1 min-w-0">      
+      397 -                          <div className="flex justify-between
+          - items-start gap-2">                                          
+      398 -                            <div>                             
+      399 -                              <div className="flex items-cente
+          -r gap-1.5 flex-wrap mb-0.5">                                  
+      400 -                                <span style={{ fontFamily: t.f
+          -ontHeading, fontSize: "0.9375rem", color: "#5c3d2e" }}>{resolv
+          -ed.name}</span>                                               
+      401 -                                <span className="text-[9px] px
+          --1.5 py-0.5 shrink-0" style={{ borderRadius: t.borderRadius, b
+          -ackgroundColor: "#f0e6d8", color: "#c17f3c" }}>Special</span> 
+      402 -                              </div>                          
+      403 -                              {resolved.description && (      
+      404 -                                <p className="text-xs leading-
+          -relaxed" style={{ color: "#8a7562" }}>{resolved.description}</
+          -p>                                                            
+      405 -                              )}                              
+      406 -                            </div>                            
+      407 -                            <span className="shrink-0" style={
+          -{ fontFamily: t.fontHeading, color: "#5c3d2e" }}>{formatPrice(
+          -item.price, currency)}</span>                                 
+      521 +                        <div style={{ flex: 1, minWidth: 0 }}>
+      522 +                          <div style={{ display: "flex", justi
+          +fyContent: "space-between", alignItems: "baseline", gap: 8 }}>
+      523 +                            <span style={{ fontWeight: 600, fo
+          +ntSize: 14, color: "var(--accent)" }}>{resolved.name}</span>  
+      524 +                            <span style={{ fontWeight: 700, fo
+          +ntSize: 14, color: "var(--price-color)", whiteSpace: "nowrap",
+          + flexShrink: 0 }}>                                            
+      525 +                              {formatPrice(item.price, currenc
+          +y)}                                                           
+      526 +                            </span>                           
+      527                            </div>
+      528 +                          {resolved.description && (          
+      529 +                            <p style={{ fontSize: 12, color: "
+          +var(--text-secondary)", marginTop: 2, lineHeight: 1.4 }}>     
+      530 +                              {resolved.description}          
+      531 +                            </p>                              
+      532 +                          )}                                  
+      533                          </div>
+      534                        </div>
+      535                      );
+     ...
+      538                </div>
+      539              )}
+      540  
+      417 -            {/* Popular dishes strip — shown when at least one
+          - item is marked popular */}                                   
+      541 +            {/* Popular dishes strip */}                      
+      542              {popularItems.length > 0 && (
+      419 -              <div                                            
+      420 -                className="px-4 py-3"                         
+      421 -                style={{ borderBottom: "1px solid var(--border
+          -)" }}                                                         
+      422 -              >                                               
+      423 -                <p                                            
+      424 -                  className="text-[10px] uppercase mb-2"      
+      425 -                  style={{ color: "var(--accent)", fontFamily:
+          - t.fontBody, letterSpacing: "0.08em" }}                       
+      426 -                >                                             
+      543 +              <div style={{ padding: "12px 16px", borderBottom
+          +: "1px solid var(--border)" }}>                               
+      544 +                <p style={{ fontSize: 10, textTransform: "uppe
+          +rcase" as const, letterSpacing: "0.08em", color: "var(--accent
+          +)", fontWeight: 700, marginBottom: 8, margin: "0 0 8px 0" }}> 
+      545                    Popular dishes
+      546                  </p>
+      429 -                <div className="flex gap-2 overflow-x-auto scr
+          -ollbar-hide pb-0.5">                                          
+      547 +                <div style={{ display: "flex", gap: 8, overflo
+          +wX: "auto", scrollbarWidth: "none", paddingBottom: 2 }}>      
+      548                    {popularItems.map((item) => {
+      549                      const resolvedName = resolveTranslation(
+      550                        { name: item.name, description: item.des
+           cription },
+     ...
+      560                            setHighlightedItemId(item.id);
+      561                            setTimeout(() => setHighlightedItemI
+           d(null), 1600);
+      562                          }}
+      445 -                        className="flex-none flex items-center
+          - gap-1.5 px-2.5 py-1.5 rounded-full text-xs whitespace-nowrap 
+          -transition-colors"                                            
+      563                          style={{
+      564 +                          flexShrink: 0,                      
+      565 +                          display: "flex",                    
+      566 +                          alignItems: "center",               
+      567 +                          gap: 6,                             
+      568 +                          padding: "6px 12px",                
+      569 +                          borderRadius: 999,                  
+      570 +                          fontSize: 12,                       
+      571 +                          whiteSpace: "nowrap",               
+      572                            backgroundColor: "var(--bg-card)",
+      573                            color: "var(--text-secondary)",
+      449 -                          fontFamily: t.fontBody,             
+      450 -                          border: `1px solid ${theme.id === "w
+          -arm" ? "#e0cfc0" : theme.id === "elegant" ? "#e0dbd4" : "#e5e7
+          -eb"}`,                                                        
+      574 +                          border: "1px solid var(--border)",  
+      575 +                          cursor: "pointer",                  
+      576 +                          fontFamily: "'DM Sans', system-ui, s
+          +ans-serif",                                                   
+      577                          }}
+      578                        >
+      579                          {item.image && (
+      580                            <img
+      581                              src={item.image}
+      582                              alt={resolvedName}
+      457 -                            className="w-4 h-4 rounded-full ob
+          -ject-cover shrink-0"                                          
+      583 +                            style={{ width: 16, height: 16, bo
+          +rderRadius: 999, objectFit: "cover", flexShrink: 0 }}         
+      584                            />
+      585                          )}
+      460 -                        <span>{resolvedName}</span>           
+      586 +                        {resolvedName}                        
+      587                        </button>
+      588                      );
+      589                    })}
+     ...
+      591                </div>
+      592              )}
+      593  
+      468 -            {/* Category tabs */}                             
+      469 -            <div                                              
+      470 -              className="overflow-x-auto scrollbar-hide"      
+      471 -              style={{ borderBottom: "1px solid var(--border)"
+          - }}                                                           
+      472 -            >                                                 
+      473 -              <div className="flex p-2.5 gap-1.5">            
+      474 -                {sorted.map((cat) => {                        
+      475 -                  const catItemCount = menuItems.filter((i) =>
+          - i.categoryId === cat.id && i.isAvailable).length;            
+      476 -                  if (catItemCount === 0 && standalone) return
+          - null;                                                        
+      477 -                  const catTranslation = selectedLang !== base
+          -LangCode && cat.translations?.[selectedLang];                 
+      478 -                  const catName = catTranslation ? catTranslat
+          -ion.name : cat.name;                                          
+      479 -                  const catIsFallback = !catTranslation && sel
+          -ectedLang !== baseLangCode;                                   
+      480 -                  const isActive = effectiveActiveCategory ===
+          - cat.id;                                                      
+      481 -                  return (                                    
+      482 -                    <button                                   
+      483 -                      key={cat.id}                            
+      484 -                      onClick={() => setActiveCategory(cat.id)
+          -}                                                             
+      485 -                      className="px-3.5 py-1.5 text-sm whitesp
+          -ace-nowrap transition-all flex items-center gap-1"            
+      486 -                      style={{                                
+      487 -                        fontFamily: theme.id === "elegant" ? t
+          -.fontHeading : t.fontBody,                                    
+      488 -                        fontWeight: theme.id === "elegant" ? 4
+          -00 : 500,                                                     
+      489 -                        borderRadius: t.borderRadius,         
+      490 -                        backgroundColor: isActive ? "var(--acc
+          -ent)" : "transparent",                                        
+      491 -                        color: isActive ? "#fff" : "var(--text
+          --secondary)",                                                 
+      492 -                        fontSize: theme.id === "elegant" ? "0.
+          -8125rem" : "0.875rem",                                        
+      493 -                        letterSpacing: theme.id === "elegant" 
+          -? "0.02em" : undefined,                                       
+      494 -                      }}                                      
+      495 -                    >                                         
+      496 -                      {catName}                               
+      497 -                      {catIsFallback && (                     
+      498 -                        <span                                 
+      499 -                          className="text-[8px] opacity-60 lea
+          -ding-none"                                                    
+      500 -                          style={{ color: isActive ? "#fff" : 
+          -"#999" }}                                                     
+      501 -                        >                                     
+      502 -                          {baseLangCode.toUpperCase()}        
+      503 -                        </span>                               
+      504 -                      )}                                      
+      505 -                    </button>                                 
+      506 -                  );                                          
+      507 -                })}                                           
+      508 -              </div>                                          
+      509 -            </div>                                            
+      510 -                                                              
+      511 -            {/* Items */}                                     
+      512 -            <div className="p-4 space-y-3" style={{ fontFamily
+          -: t.fontBody }}>                                              
+      513 -              {filteredItems.length === 0 ? (                 
+      514 -                <p className="text-center py-8" style={{ color
+          -: "#999" }}>No items available in this category</p>           
+      515 -              ) : (                                           
+      516 -                filteredItems.map((item) => (                 
+      517 -                  <ThemedMenuItem                             
+      518 -                    key={item.id}                             
+      519 -                    item={item}                               
+      520 -                    themeId={theme.id}                        
+      521 -                    preview={t}                               
+      522 -                    selectedLang={selectedLang}               
+      523 -                    baseLang={baseLangCode}                   
+      524 -                    highlighted={item.id === highlightedItemId
+          -}                                                             
+      525 -                    currency={currency}                       
+      594 +            {/* ── CATEGORY SECTION ── */}                    
+      595 +            <div style={{ paddingBottom: 32, backgroundColor: 
+          +"var(--bg)" }}>                                               
+      596 +              {/* Category: full-width photo banner or bold up
+          +percase heading */}                                           
+      597 +              {catHasPhotos && catBannerImage ? (             
+      598 +                <div style={{ position: "relative", height: 14
+          +0, overflow: "hidden" }}>                                     
+      599 +                  <img                                        
+      600 +                    src={catBannerImage}                      
+      601 +                    alt={activeCatName}                       
+      602 +                    style={{ width: "100%", height: "100%", ob
+          +jectFit: "cover", display: "block" }}                         
+      603                    />
+      527 -                ))                                            
+      604 +                  <div                                        
+      605 +                    style={{                                  
+      606 +                      position: "absolute",                   
+      607 +                      inset: 0,                               
+      608 +                      background: "linear-gradient(to top, rgb
+          +a(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 55%, transparent 100%)",    
+      609 +                    }}                                        
+      610 +                  />                                          
+      611 +                  <h3                                         
+      612 +                    style={{                                  
+      613 +                      position: "absolute",                   
+      614 +                      bottom: 14,                             
+      615 +                      left: 16,                               
+      616 +                      color: "#fff",                          
+      617 +                      fontWeight: 700,                        
+      618 +                      fontSize: 18,                           
+      619 +                      fontFamily: "'DM Sans', system-ui, sans-
+          +serif",                                                       
+      620 +                      margin: 0,                              
+      621 +                      textShadow: "0 1px 4px rgba(0,0,0,0.5)",
+      622 +                    }}                                        
+      623 +                  >                                           
+      624 +                    {activeCatName}                           
+      625 +                  </h3>                                       
+      626 +                </div>                                        
+      627 +              ) : (                                           
+      628 +                <div style={{ padding: "18px 16px 10px" }}>   
+      629 +                  <h3                                         
+      630 +                    style={{                                  
+      631 +                      fontWeight: 700,                        
+      632 +                      fontSize: 11,                           
+      633 +                      letterSpacing: "0.1em",                 
+      634 +                      textTransform: "uppercase" as const,    
+      635 +                      color: "var(--text-secondary)",         
+      636 +                      margin: 0,                              
+      637 +                    }}                                        
+      638 +                  >                                           
+      639 +                    {activeCatName}                           
+      640 +                  </h3>                                       
+      641 +                </div>                                        
+      642                )}
+      643 +                                                              
+      644 +              {/* Items */}                                   
+      645 +              <div style={{ padding: "0 16px" }}>             
+      646 +                {filteredItems.length === 0 ? (               
+      647 +                  <p style={{ textAlign: "center", padding: "3
+          +2px 0", color: "var(--text-secondary)", fontSize: 14 }}>      
+      648 +                    No items available in this category       
+      649 +                  </p>                                        
+      650 +                ) : (                                         
+      651 +                  filteredItems.map((item) =>                 
+      652 +                    item.image ? (                            
+      653 +                      <GuestItemCard                          
+      654 +                        key={item.id}                         
+      655 +                        item={item}                           
+      656 +                        selectedLang={selectedLang}           
+      657 +                        baseLang={baseLangCode}               
+      658 +                        highlighted={item.id === highlightedIt
+          +emId}                                                         
+      659 +                        currency={currency}                   
+      660 +                      />                                      
+      661 +                    ) : (                                     
+      662 +                      <GuestItemRow                           
+      663 +                        key={item.id}                         
+      664 +                        item={item}                           
+      665 +                        selectedLang={selectedLang}           
+      666 +                        baseLang={baseLangCode}               
+      667 +                        highlighted={item.id === highlightedIt
+          +emId}                                                         
+      668 +                        currency={currency}                   
+      669 +                      />                                      
+      670 +                    )                                         
+      671 +                  )                                           
+      672 +                )}                                            
+      673 +              </div>                                          
+      674              </div>
+      675            </>
+      676          )}
+      677  
+      678          {/* Footer */}
+      679          <div
+      535 -          className="p-4 text-center text-xs"                 
+      680            style={{
+      681 +            padding: "12px 16px",                             
+      682 +            textAlign: "center",                              
+      683              borderTop: "1px solid var(--border)",
+      684 +            fontSize: 11,                                     
+      685              color: "var(--text-secondary)",
+      539 -            fontFamily: t.fontBody,                           
+      686            }}
+      687          >
+      542 -          Powered by <span style={{ fontFamily: t.fontHeading,
+          - color: "var(--accent)" }}>Dain</span>                        
+      688 +          Powered by{" "}                                     
+      689 +          <span style={{ color: "var(--accent)", fontWeight: 6
+          +00, fontFamily: "'DM Sans', system-ui, sans-serif" }}>        
+      690 +            Dain                                              
+      691 +          </span>                                             
+      692          </div>
+      693        </div>
+      694      );
+
+⏺ Now replace ThemedMenuItem with GuestItemCard + GuestItemRow:
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Update(src/pages/GuestPreview.tsx)
+  ⎿  Added 2 lines, removed 6 lines
+      947    );
+      948  }
+      949  
+      950 -// ── Themed menu item component ──                           
+      950 +// ── Item card: item HAS a photo — 16:9 image, full details b
+          +elow ──                                                       
+      951  
+      952 -function ThemedMenuItem({                                     
+      952 +function GuestItemCard({                                      
+      953    item,
+      954 -  themeId,                                                    
+      955 -  preview,                                                    
+      954    selectedLang,
+      955    baseLang,
+      956    highlighted = false,
+      957    currency = "USD",
+      958  }: {
+      959    item: MenuItem;
+      962 -  themeId: GuestThemeId;                                      
+      963 -  preview: ReturnType<typeof getGuestTheme>["preview"];       
+      960    selectedLang: string;
+      961    baseLang: string;
+      962    highlighted?: boolean;
+
+⏺ Now replace the entire body of the old ThemedMenuItem with the new
+  GuestItemCard body, then add GuestItemRow:
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Update(src/pages/GuestPreview.tsx)
+  ⎿  Added 191 lines, removed 220 lines
+       969      baseLang
+       970    );
+       971  
+       972 -  // ── Elegant / Maison ──                                  
+       973 -  if (themeId === "elegant") {                               
+       974 -    return (                                                 
+       972 +  return (                                                   
+       973 +    <div                                                     
+       974 +      style={{                                               
+       975 +        paddingTop: 16,                                      
+       976 +        paddingBottom: 16,                                   
+       977 +        borderTop: "1px solid var(--border)",                
+       978 +        opacity: item.soldOut ? 0.7 : 1,                     
+       979 +      }}                                                     
+       980 +    >                                                        
+       981 +      {/* 16:9 photo */}                                     
+       982        <div
+       976 -        className="py-4 transition-colors duration-500"      
+       983          style={{
+       978 -          borderBottom: "1px solid var(--border)",           
+       979 -          backgroundColor: highlighted ? "var(--bg-card)" : "
+           -transparent",                                                
+       980 -          opacity: item.soldOut ? 0.7 : 1,                   
+       984 +          borderRadius: 12,                                  
+       985 +          overflow: "hidden",                                
+       986 +          aspectRatio: "16/9",                               
+       987 +          marginBottom: 10,                                  
+       988          }}
+       989        >
+       983 -        <div className="flex gap-3 items-start">             
+       984 -          {/* Text block */}                                 
+       985 -          <div className="flex-1 min-w-0">                   
+       986 -            <div className="flex justify-between items-baseli
+           -ne gap-2">                                                   
+       987 -              <div className="flex items-center gap-1.5 flex-
+           -wrap min-w-0">                                               
+       988 -                <span                                        
+       989 -                  style={{                                   
+       990 -                    fontFamily: preview.fontHeading,         
+       991 -                    fontSize: "1rem",                        
+       992 -                    color: item.soldOut ? "var(--text-seconda
+           -ry)" : item.isPopular ? "var(--accent)" : "var(--text-primary
+           -)",                                                          
+       993 -                    textDecoration: item.soldOut ? "line-thro
+           -ugh" : undefined,                                            
+       994 -                  }}                                         
+       995 -                >                                            
+       996 -                  {resolved.name}                            
+       997 -                </span>                                      
+       998 -                {item.soldOut && (                           
+       999 -                  <span className="text-[9px] px-1.5 py-0.5 r
+           -ounded-full shrink-0" style={{ backgroundColor: "#f0ece7", co
+           -lor: "#999", letterSpacing: "0.04em" }}>Sold out</span>      
+      1000 -                )}                                           
+      1001 -                {!item.soldOut && item.isPopular && (        
+      1002 -                  <Star className="h-3 w-3 shrink-0" style={{
+           - color: "var(--accent)", fill: "var(--accent)" }} />         
+      1003 -                )}                                           
+      1004 -                {resolved.isFallback && selectedLang !== base
+           -Lang && (                                                    
+      1005 -                  <span className="text-[9px] px-1.5 py-0.5 r
+           -ounded shrink-0" style={{ backgroundColor: "#f0ece7", color: 
+           -"#999" }}>{baseLang.toUpperCase()}</span>                    
+      1006 -                )}                                           
+      1007 -              </div>                                         
+      1008 -              <div className="flex items-center gap-2 ml-2 sh
+           -rink-0">                                                     
+      1009 -                <span className="h-px w-5" style={{ backgroun
+           -dColor: "var(--border)" }} />                                
+      1010 -                <span style={{ fontFamily: preview.fontHeadin
+           -g, color: item.soldOut ? "var(--text-secondary)" : "var(--pri
+           -ce-color)" }}>{formatPrice(item.price, currency)}</span>     
+      1011 -              </div>                                         
+      1012 -            </div>                                           
+      1013 -            {!item.soldOut && resolved.description && (      
+      1014 -              <p className="mt-1.5 text-sm leading-relaxed" s
+           -tyle={{ color: "#888", fontStyle: "italic" }}>{resolved.descr
+           -iption}</p>                                                  
+      1015 -            )}                                               
+      1016 -            {!item.soldOut && (item.allergens.length > 0 || i
+           -tem.calories) && (                                           
+      1017 -              <div className="flex flex-wrap gap-1.5 mt-2">  
+      1018 -                {item.allergens.map((a) => (                 
+      1019 -                  <span key={a} className="text-[10px] capita
+           -lize px-2 py-0.5 rounded-full" style={{ backgroundColor: "#f0
+           -ece7", color: "#8b7355" }}>{a}</span>                        
+      1020 -                ))}                                          
+      1021 -                {item.calories && (                          
+      1022 -                  <span className="text-[10px] px-2 py-0.5 ro
+           -unded-full" style={{ backgroundColor: "#f0ece7", color: "#8b7
+           -355" }}>                                                     
+      1023 -                    {item.calories} cal                      
+      1024 -                  </span>                                    
+      1025 -                )}                                           
+      1026 -              </div>                                         
+      1027 -            )}                                               
+      1028 -          </div>                                             
+      1029 -          {/* Thumbnail — only when an image exists */}      
+      1030 -          {item.image && (                                   
+      1031 -            <img                                             
+      1032 -              src={item.image}                               
+      1033 -              alt={resolved.name}                            
+      1034 -              className="w-14 h-14 shrink-0 object-cover"    
+      1035 -              style={{ borderRadius: "0.375rem", filter: item
+           -.soldOut ? "grayscale(60%)" : undefined }}                   
+      1036 -            />                                               
+      1037 -          )}                                                 
+      1038 -        </div>                                               
+       990 +        <img                                                 
+       991 +          src={item.image!}                                  
+       992 +          alt={resolved.name}                                
+       993 +          style={{                                           
+       994 +            width: "100%",                                   
+       995 +            height: "100%",                                  
+       996 +            objectFit: "cover",                              
+       997 +            display: "block",                                
+       998 +            filter: item.soldOut ? "grayscale(50%)" : undefin
+           +ed,                                                          
+       999 +          }}                                                 
+      1000 +        />                                                   
+      1001        </div>
+      1040 -    );                                                       
+      1041 -  }                                                          
+      1002  
+      1043 -  // ── Contemporary / Studio ──                             
+      1044 -  if (themeId === "contemporary") {                          
+      1045 -    return (                                                 
+      1046 -      <div                                                   
+      1047 -        className="p-4 transition-all duration-500 hover:shad
+           -ow-sm"                                                       
+      1048 -        style={{                                             
+      1049 -          backgroundColor: "var(--bg-card)",                 
+      1050 -          borderRadius: preview.borderRadius,                
+      1051 -          border: item.soldOut ? "1px solid #e5e7eb" : item.i
+           -sPopular ? `1px solid ${"var(--accent)"}30` : "1px solid #e5e
+           -7eb",                                                        
+      1052 -          borderLeft: item.soldOut ? undefined : item.isPopul
+           -ar ? `3px solid ${"var(--accent)"}` : undefined,             
+      1053 -          boxShadow: highlighted ? `0 0 0 2px ${"var(--accent
+           -)"}` : undefined,                                            
+      1054 -          opacity: item.soldOut ? 0.65 : 1,                  
+      1055 -        }}                                                   
+      1056 -      >                                                      
+      1057 -        <div className="flex gap-3 items-start">             
+      1058 -          {/* Text + price block */}                         
+      1059 -          <div className="flex-1 min-w-0">                   
+      1060 -            <div className="flex items-start justify-between 
+           -gap-2">                                                      
+      1061 -              <div className="flex-1 min-w-0">               
+      1062 -                <div className="flex items-center gap-2 flex-
+           -wrap">                                                       
+      1063 -                  <span                                      
+      1064 -                    className="text-sm"                      
+      1065 -                    style={{ fontFamily: preview.fontHeading,
+           - fontWeight: 600, textDecoration: item.soldOut ? "line-throug
+           -h" : undefined, color: item.soldOut ? "#9ca3af" : undefined }
+           -}                                                            
+      1066 -                  >                                          
+      1067 -                    {resolved.name}                          
+      1068 -                  </span>                                    
+      1069 -                  {item.soldOut && (                         
+      1070 -                    <span className="text-[9px] px-1.5 py-0.5
+           - rounded font-medium shrink-0" style={{ backgroundColor: "#f3
+           -f4f6", color: "#6b7280" }}>SOLD OUT</span>                   
+      1071 -                  )}                                         
+      1072 -                  {!item.soldOut && item.isPopular && (      
+      1073 -                    <span                                    
+      1074 -                      className="text-[9px] px-1.5 py-0.5 rou
+           -nded font-medium shrink-0"                                   
+      1075 -                      style={{ backgroundColor: "var(--accent
+           -)", color: "#fff" }}                                         
+      1076 -                    >                                        
+      1077 -                      POPULAR                                
+      1078 -                    </span>                                  
+      1079 -                  )}                                         
+      1080 -                  {resolved.isFallback && selectedLang !== ba
+           -seLang && (                                                  
+      1081 -                    <span className="text-[9px] px-1.5 py-0.5
+           - rounded shrink-0" style={{ backgroundColor: "#f3f4f6", color
+           -: "#999" }}>{baseLang.toUpperCase()}</span>                  
+      1082 -                  )}                                         
+      1083 -                </div>                                       
+      1084 -                {!item.soldOut && resolved.description && (  
+      1085 -                  <p className="mt-1 text-xs leading-relaxed"
+           - style={{ color: "#6b7280" }}>{resolved.description}</p>     
+      1086 -                )}                                           
+      1087 -              </div>                                         
+      1088 -              <span className="text-sm font-bold shrink-0" st
+           -yle={{ color: item.soldOut ? "var(--text-secondary)" : "var(-
+           --price-color)" }}>{formatPrice(item.price, currency)}</span> 
+      1089 -            </div>                                           
+      1090 -            {!item.soldOut && (item.allergens.length > 0 || i
+           -tem.calories) && (                                           
+      1091 -              <div className="flex flex-wrap gap-1 mt-2.5">  
+      1092 -                {item.allergens.map((a) => (                 
+      1093 -                  <span key={a} className="text-[10px] capita
+           -lize px-2 py-0.5 rounded-md font-medium" style={{ backgroundC
+           -olor: "#f3f4f6", color: "#374151" }}>{a}</span>              
+      1094 -                ))}                                          
+      1095 -                {item.calories && (                          
+      1096 -                  <span className="text-[10px] px-2 py-0.5 ro
+           -unded-md font-medium" style={{ backgroundColor: "#eff6ff", co
+           -lor: "#2563eb" }}>                                           
+      1097 -                    {item.calories} cal                      
+      1098 -                  </span>                                    
+      1099 -                )}                                           
+      1100 -              </div>                                         
+      1101 -            )}                                               
+      1102 -          </div>                                             
+      1103 -          {/* Thumbnail — only when an image exists */}      
+      1104 -          {item.image && (                                   
+      1105 -            <img                                             
+      1106 -              src={item.image}                               
+      1107 -              alt={resolved.name}                            
+      1108 -              className="w-16 h-16 shrink-0 object-cover"    
+      1109 -              style={{ borderRadius: preview.borderRadius, fi
+           -lter: item.soldOut ? "grayscale(50%)" : undefined }}         
+      1110 -            />                                               
+      1003 +      {/* Name (left) + calories/portion (right, muted) */}  
+      1004 +      <div style={{ display: "flex", justifyContent: "space-b
+           +etween", alignItems: "baseline", gap: 8 }}>                  
+      1005 +        <div style={{ flex: 1, minWidth: 0, display: "flex", 
+           +alignItems: "center", gap: 6, flexWrap: "wrap" }}>           
+      1006 +          <span                                              
+      1007 +            style={{                                         
+      1008 +              fontWeight: 700,                               
+      1009 +              fontSize: 15,                                  
+      1010 +              color: item.soldOut ? "var(--text-secondary)" :
+           + "var(--text-primary)",                                      
+      1011 +              textDecoration: item.soldOut ? "line-through" :
+           + undefined,                                                  
+      1012 +              fontFamily: "'DM Sans', system-ui, sans-serif",
+      1013 +            }}                                               
+      1014 +          >                                                  
+      1015 +            {resolved.name}                                  
+      1016 +          </span>                                            
+      1017 +          {item.soldOut && (                                 
+      1018 +            <span style={{ fontSize: 10, color: "var(--text-s
+           +econdary)", padding: "1px 6px", borderRadius: 999, background
+           +Color: "var(--bg-card)", border: "1px solid var(--border)" }}
+           +>                                                            
+      1019 +              Sold out                                       
+      1020 +            </span>                                          
+      1021            )}
+      1022 +          {!item.soldOut && item.isPopular && (              
+      1023 +            <Star style={{ width: 12, height: 12, flexShrink:
+           + 0, color: "var(--accent)", fill: "var(--accent)" }} />      
+      1024 +          )}                                                 
+      1025 +          {resolved.isFallback && selectedLang !== baseLang &
+           +& (                                                          
+      1026 +            <span style={{ fontSize: 9, color: "var(--text-se
+           +condary)", padding: "1px 4px", borderRadius: 4, backgroundCol
+           +or: "var(--bg-card)" }}>                                     
+      1027 +              {baseLang.toUpperCase()}                       
+      1028 +            </span>                                          
+      1029 +          )}                                                 
+      1030          </div>
+      1031 +        {item.calories && (                                  
+      1032 +          <span style={{ fontSize: 12, color: "var(--text-sec
+           +ondary)", whiteSpace: "nowrap", flexShrink: 0 }}>            
+      1033 +            {item.calories} cal                              
+      1034 +          </span>                                            
+      1035 +        )}                                                   
+      1036        </div>
+      1114 -    );                                                       
+      1115 -  }                                                          
+      1037  
+      1117 -  // ── Warm / Osteria + Custom (fallback) ──                
+      1118 -  const warmPopularBg = themeId === "warm" && item.isPopular 
+           -&& !item.soldOut ? "#fef5ec" : preview.cardBg;               
+      1119 -  const warmHighlightBg = themeId === "warm" && highlighted ?
+           - "#fde8ce" : warmPopularBg;                                  
+      1038 +      {/* Description */}                                    
+      1039 +      {!item.soldOut && resolved.description && (            
+      1040 +        <p style={{ fontSize: 12, color: "var(--text-secondar
+           +y)", marginTop: 4, lineHeight: 1.55 }}>                      
+      1041 +          {resolved.description}                             
+      1042 +        </p>                                                 
+      1043 +      )}                                                     
+      1044 +                                                             
+      1045 +      {/* Price */}                                          
+      1046 +      <div style={{ marginTop: 8 }}>                         
+      1047 +        <span style={{ fontWeight: 700, fontSize: 16, color: 
+           +"var(--accent)", fontFamily: "'DM Sans', system-ui, sans-seri
+           +f" }}>                                                       
+      1048 +          {formatPrice(item.price, currency)}                
+      1049 +        </span>                                              
+      1050 +      </div>                                                 
+      1051 +                                                             
+      1052 +      {/* Allergen badges */}                                
+      1053 +      {!item.soldOut && item.allergens.length > 0 && (       
+      1054 +        <div style={{ display: "flex", flexWrap: "wrap", gap:
+           + 4, marginTop: 8 }}>                                         
+      1055 +          {item.allergens.map((a) => (                       
+      1056 +            <span                                            
+      1057 +              key={a}                                        
+      1058 +              style={{                                       
+      1059 +                fontSize: 10,                                
+      1060 +                padding: "2px 8px",                          
+      1061 +                borderRadius: 999,                           
+      1062 +                backgroundColor: "var(--bg-card)",           
+      1063 +                color: "var(--text-secondary)",              
+      1064 +                border: "1px solid var(--border)",           
+      1065 +                textTransform: "capitalize",                 
+      1066 +              }}                                             
+      1067 +            >                                                
+      1068 +              {a}                                            
+      1069 +            </span>                                          
+      1070 +          ))}                                                
+      1071 +        </div>                                               
+      1072 +      )}                                                     
+      1073 +    </div>                                                   
+      1074 +  );                                                         
+      1075 +}                                                            
+      1076 +                                                             
+      1077 +// ── Item row: item has NO photo — compact name + price + de
+           +scription ──                                                 
+      1078 +                                                             
+      1079 +function GuestItemRow({                                      
+      1080 +  item,                                                      
+      1081 +  selectedLang,                                              
+      1082 +  baseLang,                                                  
+      1083 +  highlighted = false,                                       
+      1084 +  currency = "USD",                                          
+      1085 +}: {                                                         
+      1086 +  item: MenuItem;                                            
+      1087 +  selectedLang: string;                                      
+      1088 +  baseLang: string;                                          
+      1089 +  highlighted?: boolean;                                     
+      1090 +  currency?: string;                                         
+      1091 +}) {                                                         
+      1092 +  const resolved = resolveTranslation(                       
+      1093 +    { name: item.name, description: item.description },      
+      1094 +    item.translations,                                       
+      1095 +    selectedLang,                                            
+      1096 +    baseLang                                                 
+      1097 +  );                                                         
+      1098 +                                                             
+      1099    return (
+      1100      <div
+      1122 -      className="p-4 transition-colors duration-500"         
+      1101        style={{
+      1124 -        backgroundColor: item.soldOut ? preview.cardBg : warm
+           -HighlightBg,                                                 
+      1125 -        borderRadius: preview.borderRadius,                  
+      1126 -        border: themeId === "warm" ? "1px solid #e8ddd0" : "1
+           -px solid #e5e7eb",                                           
+      1102 +        paddingTop: 12,                                      
+      1103 +        paddingBottom: 12,                                   
+      1104 +        borderBottom: "1px solid var(--border)",             
+      1105          opacity: item.soldOut ? 0.65 : 1,
+      1106 +        backgroundColor: highlighted ? "var(--bg-card)" : "tr
+           +ansparent",                                                  
+      1107 +        transition: "background-color 400ms",                
+      1108 +        borderRadius: highlighted ? 8 : undefined,           
+      1109 +        margin: highlighted ? "0 -4px" : undefined,          
+      1110 +        padding: highlighted ? "12px 4px" : undefined,       
+      1111        }}
+      1112      >
+      1130 -      <div className="flex gap-3 items-start">               
+      1131 -        {/* Text + price block */}                           
+      1132 -        <div className="flex-1 min-w-0">                     
+      1133 -          <div className="flex items-start justify-between ga
+           -p-2">                                                        
+      1134 -            <div className="flex-1 min-w-0">                 
+      1135 -              <div className="flex items-center gap-2 flex-wr
+           -ap">                                                         
+      1136 -                <span                                        
+      1137 -                  style={{                                   
+      1138 -                    fontFamily: preview.fontHeading,         
+      1139 -                    fontSize: "0.9375rem",                   
+      1140 -                    textDecoration: item.soldOut ? "line-thro
+           -ugh" : undefined,                                            
+      1141 -                    color: item.soldOut ? "#aaa" : undefined,
+      1142 -                  }}                                         
+      1143 -                >                                            
+      1144 -                  {resolved.name}                            
+      1145 -                </span>                                      
+      1146 -                {item.soldOut && (                           
+      1147 -                  <span                                      
+      1148 -                    className="text-[9px] px-1.5 py-0.5 shrin
+           -k-0"                                                         
+      1149 -                    style={{ borderRadius: preview.borderRadi
+           -us, backgroundColor: themeId === "warm" ? "#f0e6d8" : "#f3f4f
+           -6", color: "#999" }}                                         
+      1150 -                  >                                          
+      1151 -                    Sold out                                 
+      1152 -                  </span>                                    
+      1153 -                )}                                           
+      1154 -                {!item.soldOut && item.isPopular && (        
+      1155 -                  <Star                                      
+      1156 -                    className="h-4 w-4 shrink-0"             
+      1157 -                    style={{ color: "var(--accent)", fill: "v
+           -ar(--accent)" }}                                             
+      1158 -                  />                                         
+      1159 -                )}                                           
+      1160 -                {resolved.isFallback && selectedLang !== base
+           -Lang && (                                                    
+      1161 -                  <span className="text-[9px] px-1.5 py-0.5 r
+           -ounded-full shrink-0" style={{ backgroundColor: themeId === "
+           -warm" ? "#f0e6d8" : "#f3f4f6", color: "#999" }}>{baseLang.toU
+           -pperCase()}</span>                                           
+      1162 -                )}                                           
+      1163 -              </div>                                         
+      1164 -              {!item.soldOut && resolved.description && (    
+      1165 -                <p className="mt-1.5 text-sm leading-relaxed"
+           - style={{ color: themeId === "warm" ? "#8a7562" : "#6b7280" }
+           -}>{resolved.description}</p>                                 
+      1166 -              )}                                             
+      1167 -            </div>                                           
+      1168 -            <span className="shrink-0" style={{ fontFamily: p
+           -review.fontHeading, fontSize: "1.05rem", color: item.soldOut 
+           -? "#bbb" : themeId === "warm" ? "#5c3d2e" : "#333" }}>       
+      1169 -              {formatPrice(item.price, currency)}            
+      1113 +      {/* Name (left) + price (right) on same line */}       
+      1114 +      <div style={{ display: "flex", justifyContent: "space-b
+           +etween", alignItems: "baseline", gap: 8 }}>                  
+      1115 +        <div style={{ flex: 1, minWidth: 0, display: "flex", 
+           +alignItems: "center", gap: 6, flexWrap: "wrap" }}>           
+      1116 +          <span                                              
+      1117 +            style={{                                         
+      1118 +              fontWeight: 600,                               
+      1119 +              fontSize: 14,                                  
+      1120 +              color: item.soldOut ? "var(--text-secondary)" :
+           + "var(--text-primary)",                                      
+      1121 +              textDecoration: item.soldOut ? "line-through" :
+           + undefined,                                                  
+      1122 +              fontFamily: "'DM Sans', system-ui, sans-serif",
+      1123 +            }}                                               
+      1124 +          >                                                  
+      1125 +            {resolved.name}                                  
+      1126 +          </span>                                            
+      1127 +          {item.soldOut && (                                 
+      1128 +            <span style={{ fontSize: 10, color: "var(--text-s
+           +econdary)", padding: "1px 6px", borderRadius: 999, background
+           +Color: "var(--bg-card)", border: "1px solid var(--border)" }}
+           +>                                                            
+      1129 +              Sold out                                       
+      1130              </span>
+      1171 -          </div>                                             
+      1172 -          {!item.soldOut && (item.allergens.length > 0 || ite
+           -m.calories) && (                                             
+      1173 -            <div className="flex flex-wrap gap-1.5 mt-2.5">  
+      1174 -              {item.allergens.map((a) => (                   
+      1175 -                <span                                        
+      1176 -                  key={a}                                    
+      1177 -                  className="text-[10px] capitalize px-2 py-0
+           -.5"                                                          
+      1178 -                  style={{                                   
+      1179 -                    borderRadius: preview.borderRadius,      
+      1180 -                    backgroundColor: themeId === "warm" ? "#f
+           -0e6d8" : "#f3f4f6",                                          
+      1181 -                    color: themeId === "warm" ? "#7a5540" : "
+           -#374151",                                                    
+      1182 -                  }}                                         
+      1183 -                >                                            
+      1184 -                  {a}                                        
+      1185 -                </span>                                      
+      1186 -              ))}                                            
+      1187 -              {item.calories && (                            
+      1188 -                <span                                        
+      1189 -                  className="text-[10px] px-2 py-0.5 flex ite
+           -ms-center gap-0.5"                                           
+      1190 -                  style={{                                   
+      1191 -                    borderRadius: preview.borderRadius,      
+      1192 -                    backgroundColor: themeId === "warm" ? "#f
+           -0e6d8" : "#eff6ff",                                          
+      1193 -                    color: themeId === "warm" ? "#7a5540" : "
+           -#6366f1",                                                    
+      1194 -                  }}                                         
+      1195 -                >                                            
+      1196 -                  <Leaf className="h-2.5 w-2.5" /> {item.calo
+           -ries} cal                                                    
+      1197 -                </span>                                      
+      1198 -              )}                                             
+      1199 -            </div>                                           
+      1131            )}
+      1132 +          {!item.soldOut && item.isPopular && (              
+      1133 +            <Star style={{ width: 11, height: 11, flexShrink:
+           + 0, color: "var(--accent)", fill: "var(--accent)" }} />      
+      1134 +          )}                                                 
+      1135 +          {resolved.isFallback && selectedLang !== baseLang &
+           +& (                                                          
+      1136 +            <span style={{ fontSize: 9, color: "var(--text-se
+           +condary)", padding: "1px 4px", borderRadius: 4, backgroundCol
+           +or: "var(--bg-card)" }}>                                     
+      1137 +              {baseLang.toUpperCase()}                       
+      1138 +            </span>                                          
+      1139 +          )}                                                 
+      1140          </div>
+      1202 -        {/* Thumbnail — only when an image exists */}        
+      1203 -        {item.image && (                                     
+      1204 -          <img                                               
+      1205 -            src={item.image}                                 
+      1206 -            alt={resolved.name}                              
+      1207 -            className="w-16 h-16 shrink-0 object-cover"      
+      1208 -            style={{ borderRadius: preview.borderRadius, filt
+           -er: item.soldOut ? "grayscale(50%)" : undefined }}           
+      1209 -          />                                                 
+      1210 -        )}                                                   
+      1141 +        <span                                                
+      1142 +          style={{                                           
+      1143 +            fontWeight: 700,                                 
+      1144 +            fontSize: 15,                                    
+      1145 +            color: item.soldOut ? "var(--text-secondary)" : "
+           +var(--accent)",                                              
+      1146 +            whiteSpace: "nowrap",                            
+      1147 +            flexShrink: 0,                                   
+      1148 +            fontFamily: "'DM Sans', system-ui, sans-serif",  
+      1149 +          }}                                                 
+      1150 +        >                                                    
+      1151 +          {formatPrice(item.price, currency)}                
+      1152 +        </span>                                              
+      1153        </div>
+      1154 +                                                             
+      1155 +      {/* Description below in muted text */}                
+      1156 +      {!item.soldOut && resolved.description && (            
+      1157 +        <p style={{ fontSize: 12, color: "var(--text-secondar
+           +y)", marginTop: 3, lineHeight: 1.5 }}>                       
+      1158 +          {resolved.description}                             
+      1159 +        </p>                                                 
+      1160 +      )}                                                     
+      1161 +                                                             
+      1162 +      {/* Allergen badges */}                                
+      1163 +      {!item.soldOut && item.allergens.length > 0 && (       
+      1164 +        <div style={{ display: "flex", flexWrap: "wrap", gap:
+           + 4, marginTop: 6 }}>                                         
+      1165 +          {item.allergens.map((a) => (                       
+      1166 +            <span                                            
+      1167 +              key={a}                                        
+      1168 +              style={{                                       
+      1169 +                fontSize: 10,                                
+      1170 +                padding: "2px 8px",                          
+      1171 +                borderRadius: 999,                           
+      1172 +                backgroundColor: "var(--bg-card)",           
+      1173 +                color: "var(--text-secondary)",              
+      1174 +                border: "1px solid var(--border)",           
+      1175 +                textTransform: "capitalize",                 
+      1176 +              }}                                             
+      1177 +            >                                                
+      1178 +              {a}                                            
+      1179 +            </span>                                          
+      1180 +          ))}                                                
+      1181 +        </div>                                               
+      1182 +      )}                                                     
+      1183      </div>
+      1184    );
+      1185  }
+
+⏺ Now run all TypeScript checks:
+
+⏺ Bash(npx tsc --noEmit 2>&1)
+  ⎿  (No output)
+
+⏺ Bash(npx tsc --noEmit -p tsconfig.app.json 2>&1 && npx tsc --noEmit -p
+      tsconfig.server.json 2>&1 && echo "ALL CLEAN")
+  ⎿  ALL CLEAN
+
+⏺ All three clean. Commit:
+
+⏺ Bash(git add src/pages/GuestPreview.tsx src/hooks/use-public-restaurant.ts
+      server/routes.ts && git commit -m "$(cat <<'EOF'
+      feat: guest view layout redesign…)
+  ⎿  [main 35db38f] feat: guest view layout redesign
+      3 files changed, 582 insertions(+), 439 deletions(-)
+                                      
+⏺ Done. Here's what changed:          
+                                                                                
+  New layout structure:                                                         
+  - Header — 200px cover photo if restaurant.coverImage is set; otherwise solid 
+  var(--accent) block with restaurant name centred in white + dark overlay.     
+  Language selector pills float top-right with frosted glass styling.         
+  - Info card — slides over the photo by 20px (marginTop: -20), rounded top     
+  corners, subtle upward shadow. Shows name (bold 24px), address+phone with
+  MapPin/Phone icons, WiFi from guestContactInfo, description.                  
+  - Category tabs — pill buttons: filled terracotta = active, outlined ghost =
+  inactive. Scrollable, inline with the info card.                              
+  - Category section — if any item in the active category has a photo:          
+  full-width 140px banner using the first photo + dark gradient + category name
+  overlay. Otherwise: bold uppercase text heading.                              
+  - Item rendering — items with photos get GuestItemCard (16:9 aspect ratio,
+  price in accent colour). Items without photos get GuestItemRow (name+price    
+  same line, muted description below, thin border divider).                     
+  - Specials/popular strips kept, re-styled to unified CSS-var look.          
+  - Public API extended to return coverImage, address, phone, description,      
+  guestContactInfo, city.   

@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1775139305944,
+      "tag": "0000_illegal_the_initiative",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1775139840340,
+      "tag": "0001_daffy_guardsmen",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1775292546570,
+      "tag": "0002_soft_moira_mactaggert",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1775296999547,
+      "tag": "0003_blue_shadow_king",
+      "breakpoints": true
+    }
+  ]
+}

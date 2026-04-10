@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar but allow scrolling */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@layer base {
+  :root {
+    /* ── Warm ivory foundation with deep charcoal ── */
+    --background: 40 30% 97%;
+    --foreground: 24 15% 12%;
+
+    --card: 40 25% 99%;
+    --card-foreground: 24 15% 12%;
+
+    --popover: 40 25% 99%;
+    --popover-foreground: 24 15% 12%;
+
+    /* ── Signature terracotta / burnt amber ── */
+    --primary: 18 76% 48%;
+    --primary-foreground: 40 30% 98%;
+
+    --secondary: 35 20% 93%;
+    --secondary-foreground: 24 12% 25%;
+
+    --muted: 35 18% 94%;
+    --muted-foreground: 24 8% 48%;
+
+    /* ── Warm sage accent ── */
+    --accent: 152 28% 42%;
+    --accent-foreground: 40 30% 98%;
+
+    --destructive: 4 72% 52%;
+    --destructive-foreground: 40 30% 98%;
+
+    --border: 35 16% 89%;
+    --input: 35 14% 87%;
+    --ring: 18 76% 48%;
+
+    --radius: 0.75rem;
+
+    /* ── Sidebar: deep navy charcoal (Dain brand anchor) ── */
+    --sidebar-background: 214 32% 11%;
+    --sidebar-foreground: 35 12% 82%;
+    --sidebar-primary: 18 76% 52%;
+    --sidebar-primary-foreground: 40 30% 98%;
+    --sidebar-accent: 214 25% 15%;
+    --sidebar-accent-foreground: 35 12% 88%;
+    --sidebar-border: 214 20% 17%;
+    --sidebar-ring: 18 76% 52%;
+
+    /* ── Charts ── */
+    --chart-1: 18 76% 48%;
+    --chart-2: 152 28% 42%;
+    --chart-3: 210 50% 50%;
+    --chart-4: 280 40% 52%;
+    --chart-5: 340 55% 52%;
+  }
+
+  .dark {
+    --background: 20 16% 7%;
+    --foreground: 35 12% 90%;
+
+    --card: 20 14% 10%;
+    --card-foreground: 35 12% 90%;
+
+    --popover: 20 14% 10%;
+    --popover-foreground: 35 12% 90%;
+
+    --primary: 18 76% 52%;
+    --primary-foreground: 40 30% 98%;
+
+    --secondary: 20 12% 16%;
+    --secondary-foreground: 35 12% 88%;
+
+    --muted: 20 12% 14%;
+    --muted-foreground: 35 8% 52%;
+
+    --accent: 152 28% 42%;
+    --accent-foreground: 40 30% 98%;
+
+    --destructive: 4 62% 40%;
+    --destructive-foreground: 40 30% 98%;
+
+    --border: 20 12% 16%;
+    --input: 20 12% 18%;
+    --ring: 18 76% 52%;
+
+    --sidebar-background: 214 32% 7%;
+    --sidebar-foreground: 35 12% 82%;
+    --sidebar-primary: 18 76% 52%;
+    --sidebar-primary-foreground: 40 30% 98%;
+    --sidebar-accent: 214 25% 11%;
+    --sidebar-accent-foreground: 35 12% 88%;
+    --sidebar-border: 214 20% 13%;
+    --sidebar-ring: 18 76% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3 {
+    font-family: "DM Serif Display", "Georgia", serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* Product UI headings (sidebar, cards, page headers) use sans */
+  .font-heading {
+    font-family: "DM Serif Display", "Georgia", serif;
+  }
+
+  .font-sans-heading {
+    font-family: "DM Sans", system-ui, sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(18 76% 48%), hsl(18 76% 38%));
+  }
+
+  .surface-elevated {
+    box-shadow:
+      0 1px 2px hsl(24 15% 12% / 0.04),
+      0 4px 12px hsl(24 15% 12% / 0.04);
+  }
+
+  .surface-prominent {
+    box-shadow:
+      0 2px 4px hsl(24 15% 12% / 0.04),
+      0 8px 24px hsl(24 15% 12% / 0.06),
+      0 24px 48px hsl(24 15% 12% / 0.04);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}

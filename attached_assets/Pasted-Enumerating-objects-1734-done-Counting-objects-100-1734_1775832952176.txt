@@ -1,0 +1,53 @@
+Enumerating objects: 1734, done.
+Counting objects: 100% (1734/1734), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (1640/1640), done.
+Writing objects: 100% (1660/1660), 637.25 KiB | 12.74 MiB/s, done.
+Total 1660 (delta 1389), reused 24 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1389/1389), completed with 65 local objects.
+remote: fatal: did not receive expected object fe628f19402cf8436a72297883fcfb235b611759
+error: remote unpack failed: index-pack failed
+To https://github.com/23Almir23/DAIN-MENU.git
+ ! [remote rejected] main -> main (failed)
+error: failed to push some refs to 'https://github.com/23Almir23/DAIN-MENU.git'
+~/workspace$ git gc
+git push --force origin main
+Enumerating objects: 2437, done.
+Counting objects: 100% (2437/2437), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2391/2391), done.
+Writing objects: 100% (2437/2437), done.
+Total 2437 (delta 1727), reused 239 (delta 13), pack-reused 0 (from 0)
+Enumerating cruft objects: 18, done.
+Traversing cruft objects: 115, done.
+Counting objects: 100% (18/18), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (18/18), done.
+Writing objects: 100% (18/18), done.
+Total 18 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+Enumerating objects: 1734, done.
+Counting objects: 100% (1734/1734), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (344/344), done.
+Writing objects: 100% (1660/1660), 606.43 KiB | 40.43 MiB/s, done.
+Total 1660 (delta 1383), reused 1531 (delta 1296), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1383/1383), completed with 67 local objects.
+remote: fatal: did not receive expected object fe628f19402cf8436a72297883fcfb235b611759
+error: remote unpack failed: index-pack failed
+To https://github.com/23Almir23/DAIN-MENU.git
+ ! [remote rejected] main -> main (failed)
+error: failed to push some refs to 'https://github.com/23Almir23/DAIN-MENU.git'
+~/workspace$ git config http.postBuffer 524288000
+git push --force origin main
+Enumerating objects: 1734, done.
+Counting objects: 100% (1734/1734), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (344/344), done.
+Writing objects: 100% (1660/1660), 606.90 KiB | 40.46 MiB/s, done.
+Total 1660 (delta 1382), reused 1531 (delta 1296), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1382/1382), completed with 67 local objects.
+remote: fatal: did not receive expected object fe628f19402cf8436a72297883fcfb235b611759
+error: remote unpack failed: index-pack failed
+To https://github.com/23Almir23/DAIN-MENU.git
+ ! [remote rejected] main -> main (failed)
+error: failed to push some refs to 'https://github.com/23Almir23/DAIN-MENU.git'
